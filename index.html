@@ -6,20 +6,42 @@
         <title>香港都市傳說 RPG</title>
 
         <style>
+           /* 導覽列外框 */
+            .navbar {
+                display: flex;           /* 讓裡面的 logo 和連結橫排 */
+                justify-content: space-between;  /* 左右分開 */
+                align-items: center;     /* 垂直置中 */
+                background-color: #FFFFFF;
+                padding: 1rem 2rem;}
+            /* 連結橫排 */
+            .nav-links {
+                display: flex;
+                gap: 2rem;              /* 連結之間的間距 */
+            }
+            /* 連結樣式 */
+            .nav-links a {
+                color: white;
+                text-decoration: none;  /* 移除底線 */
+            }
+            /* 滑鼠移上去的效果 */
+            .nav-links a:hover {
+                color: #df3c33;}
             
         </style>
     </head>
+    
     <body>
         <div class="navbar">
             <div class="logo">Game name</div>
             <div class="nav-links">
-                <a href=" ">首頁</a >
-                <a href="#">遊戲介紹</a >
-                <a href="#">玩法說明</a >
-                <a href="#">宣傳素材</a >
-                <a href="#">團隊與聯絡</a >
+                <a href=" ">HOME</a >
+                <a href="#">BACKGROUND</a >
+                <a href="#">CHARACTERS</a >
+                <a href="#">GAMEPLAY</a >
             </div>
         </div>
+
+        <h1><strong>《Game Name》</strong></h1>
     </body>
     
     <main>
