@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
         <title>香港都市傳說 RPG</title>
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
         <style>
            /* 導覽列外框 */
             .navbar {
@@ -185,7 +187,8 @@
                 background: rgba(44, 37, 37, 0.8);
                 border: 2px solid #8b3a3a;
                 border-radius: 16px;
-                padding: 2rem;max-width: 600px;
+                padding: 2rem;
+                max-width: 1200px;
                 margin: 0 auto;
                 text-align: center;
             }
@@ -227,6 +230,7 @@
     text-decoration: none;
     font-size: 1rem;
     transition: 0.3s;
+    font-weight: bold;
 }
 
 .footer-link:hover {
@@ -237,12 +241,14 @@
 .footer-contact p {
     margin: 0.5rem 0;
     font-size: 0.9rem;
+    font-weight: bold;
 }
 
 .footer-copyright {
     margin-top: 1.5rem;
     font-size: 0.8rem;
     opacity: 0.8;
+    font-weight: bold;
 }
         </style>
     </head>
@@ -306,21 +312,14 @@
     </body>
     
 <!-- 頁尾 -->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-links">
-            <a href=" " class="footer-link">聯繫我們</a >
-            <a href="#" class="footer-link">YouTube</a >
-            <a href="#" class="footer-link">Instagram</a >
-            <a href="#" class="footer-link">Bilibili</a >
-        </div>
-        <div class="footer-contact">
-            <p>Phone: +852 XXXX XXXX</p >
-            <p>Email: game@example.com</p >
-        </div>
-        <div class="footer-copyright">
-            <p>© 2025 《Game Name》 All Rights Reserved.</p >
-        </div>
-    </div>
-</footer>
+<div class="footer-links">
+    <a href=" " class="footer-link"><i class="fas fa-envelope"></i> 聯繫我們</a >
+    <a href="#" class="footer-link"><i class="fab fa-youtube"></i> YouTube</a >
+    <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a >
+    <a href="#" class="footer-link"><i class="fab fa-bilibili"></i> Bilibili</a >
+</div>
+<div class="footer-contact">
+    <p><i class="fas fa-phone"></i> Phone: +852 XXXX XXXX</p >
+    <p><i class="fas fa-envelope"></i> Email: game@example.com</p >
+</div>
 </html>
