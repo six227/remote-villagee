@@ -8,11 +8,11 @@
         <style>
            /* 導覽列外框 */
             .navbar {
-                display: flex;           /* 讓裡面的 logo 和連結橫排 */
-                justify-content: space-between;  /* 左右分開 */
-                align-items: center;     /* 垂直置中 */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 background-color: #2c2525;
-                padding: 1.3rem 2rem;}
+                padding: 1.4rem 2rem;}
             /* 連結橫排 */
             .nav-links {
                 display: flex;
@@ -53,7 +53,7 @@
                 background-image: url('https://picsum.photos/id/104/1920/600');  /* 暫時用示意圖，之後換成你的照片 */
                 background-size: cover;
                 background-position: center;
-                height: 530px;
+                height: 550px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -91,7 +91,7 @@
             /* 下載按鈕容器 - 橫排並排 */
             .download-buttons {
                 display: flex;
-                gap: 10rem;
+                gap: 10.5rem;
                 justify-content: center;
                 margin-top: 2rem;
                 flex-wrap: wrap;
@@ -142,7 +142,7 @@
             /* 區塊標題 */
             .section-title {
                 font-size: 2rem;
-                color: #e6c300;
+                color: #6b2e2e;
                 text-align: center;
                 margin-bottom: 3rem;
                 letter-spacing: 2px;
@@ -163,33 +163,22 @@
                 min-width: 250px;
                 text-align: center;
                 transition: transform 0.3s, box-shadow 0.3s;
-                border: 1px solid #3a3a3a;
             }
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    border-color: #df3c33;
-}
-
-/* 圖示 */
-.feature-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-/* 卡片標題 */
-.feature-card h3 {
-    color: #e6c300;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-/* 卡片描述 */
-.feature-card p {
-    color: #cccccc;
-    line-height: 1.6;
-}
+            .feature-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            }
+            /* 卡片標題 */
+            .feature-card h3 {
+                color: #e6c300;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            /* 卡片描述 */
+            .feature-card p {
+                color: #cccccc;
+                line-height: 1.6;
+            }
             
         </style>
     </head>
