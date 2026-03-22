@@ -16,16 +16,20 @@
             /* 連結橫排 */
             .nav-links {
                 display: flex;
-                gap: 2rem;              /* 連結之間的間距 */
+                gap: 2rem;
+                flex-wrap: wrap;
             }
             /* 連結樣式 */
             .nav-links a {
                 color: white;
-                text-decoration: none;  /* 移除底線 */
+                text-decoration: none;
+                transition: 0.3s;
+                font-weight: 500;
             }
             /* 滑鼠移上去的效果 */
             .nav-links a:hover {
-                color: #df3c33;}
+                color: #b55b3c;
+            }
             
         </style>
     </head>
