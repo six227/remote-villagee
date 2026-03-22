@@ -91,7 +91,7 @@
             /* 下載按鈕容器 - 橫排並排 */
             .download-buttons {
                 display: flex;
-                gap: 16rem;
+                gap: 10rem;
                 justify-content: center;
                 margin-top: 2rem;
                 flex-wrap: wrap;
@@ -127,6 +127,74 @@
             .download-buttons img:hover {
                 transform: scale(1.05);
             }
+
+            /* 容器 - 控制內容寬度 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* 三大亮點區塊 */
+.features-section {
+    padding: 5rem 0;
+    background-color: #1a1a1a;
+}
+
+/* 區塊標題 */
+.section-title {
+    font-size: 2rem;
+    color: #e6c300;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+}
+
+/* 亮點卡片容器 */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* 卡片樣式 */
+.feature-card {
+    background: rgba(44, 37, 37, 0.8);
+    padding: 2rem;
+    border-radius: 16px;
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #3a3a3a;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-color: #df3c33;
+}
+
+/* 圖示 */
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* 卡片標題 */
+.feature-card h3 {
+    color: #e6c300;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* 卡片描述 */
+.feature-card p {
+    color: #cccccc;
+    line-height: 1.6;
+}
+            
         </style>
     </head>
     
@@ -150,6 +218,30 @@
                 <div class="download-buttons">
                     <a href=" " class="btn-download">▸ Google Play Download</a >
                     <a href="#" class="btn-download">▸ App Store Download</a >
+                </div>
+            </div>
+        </div>
+        
+        /* 三大亮點區塊 */
+        <div class="features-section">
+            <div class="container">
+                <h2 class="section-title">遊戲亮點 Game Highlights</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Hong Kong Urban Legends</h3>
+                        <p>香港在地傳說</p>
+                        <p>取材自「西貢結界」、「鎖羅盆村」真實都市傳說</p >
+                    </div>
+                    <div class="feature-card">
+                        <h3>Exploration × Mystery</h3>
+                        <p>探索 × 解謎</p>
+                        <p>在廢棄村落與山徑中蒐集碎片化線索，拼湊真相</p >
+                    </div>
+                    <div class="feature-card">
+                        <h3>Multiple Endings</h3>
+                        <p>多重結局</p>
+                        <p>你的選擇將導向「離開」或「留下」，兩種截然不同的命運</p >
+                    </div>
                 </div>
             </div>
         </div>
