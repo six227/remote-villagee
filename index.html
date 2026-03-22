@@ -53,7 +53,7 @@
                 background-image: url('https://picsum.photos/id/104/1920/600');  /* 暫時用示意圖，之後換成你的照片 */
                 background-size: cover;
                 background-position: center;
-                height: 500px;
+                height: 550px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -85,6 +85,7 @@
                 font-size: 1.2rem;
                 color: white;
                 letter-spacing: 1px;
+                margin-bottom: 2rem;
             }
 
             /* 下載按鈕容器 - 橫排並排 */
@@ -94,6 +95,22 @@
                 justify-content: center;
                 margin-top: 2rem;
                 flex-wrap: wrap;
+            }
+            
+            /* 紅色按鈕樣式 */
+            .btn-download {
+                background: #6b2e2e;
+                color: white;
+                border: none;
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+                font-weight: bold;
+                border-radius: 40px;
+                cursor: pointer;
+                transition: 0.3s;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                text-decoration: none;
+                display: inline-block;
             }
             /* 按鈕圖片樣式 */
             .download-buttons img {
@@ -124,13 +141,12 @@
             <div class="photo-content">
                 <h1 class="game-title">《Game Name》</h1>
                 <p class="game-subtitle">Inspired by Hong Kong urban legends · narrative-driven RPG</p >
+                
+                <div class="download-bottons">
+                    <a href=" " class="btn-download">▸ Google Play Download</a >
+                    <a href="#" class="btn-download">▸ App Store Download</a >
+                </div>
             </div>
-        
-        </div>
-        <div class="download-buttons">
-            <a href=" " class="btn-download">▸ Google Play Download</a >
-            <a href="#" class="btn-download">▸ App Store Download</a >
-        </div>
         
     </body>
     
