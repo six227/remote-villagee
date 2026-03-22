@@ -47,6 +47,46 @@
                 margin: 0;
                 font-family: Arial, sans-serif;
             }
+
+            /* photo */
+            .photo {
+                background-image: url('https://picsum.photos/id/104/1920/600');  /* 暫時用示意圖，之後換成你的照片 */
+                background-size: cover;
+                background-position: center;
+                height: 500px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                position: relative;
+            }
+            /* 半透明遮罩，讓文字更清楚 */
+            .photo::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+            }
+            .photo-content {
+                position: relative;
+                z-index: 1;
+            }
+            .game-title {
+                font-size: 4rem;
+                color: #e6c300;
+                margin-bottom: 1rem;
+                font-family: 'Caveat', 'Segoe UI', cursive;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            }
+            .game-subtitle {
+                font-size: 1.2rem;
+                color: white;
+                letter-spacing: 1px;
+            }
+            
         </style>
     </head>
     
@@ -60,8 +100,15 @@
                 <a href="#">GAMEPLAY</a >
             </div>
         </div>
-
-        <h1><strong>《Game Name》</strong></h1>
+        
+        /* photo */
+        <div class="photo">
+            <div class="photo-content">
+                <h1 class="game-title">《Game Name》</h1>
+                <p class="game-subtitle">Inspired by Hong Kong urban legends · narrative-driven RPG</p >
+            </div>
+        </div>
+        
     </body>
     
     <main>
