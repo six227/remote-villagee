@@ -225,7 +225,7 @@
     <div class="nav-links">
         <a href=" ">HOME</a >
         <a href="Background.html">BACKGROUND</a >
-        <a href="characters.html">CHARACTERS</a >
+        <a href="#">CHARACTERS</a >
         <a href="gameplay.html">GAMEPLAY</a >
     </div>
 </div>
@@ -233,14 +233,14 @@
 <!-- 角色列表區（軟木板＋紙卡） -->
 <div class="characters-section">
     <!-- 角色 1：範例角色 -->
-    <div class="character-card" onclick="openLore('林霧')">
+    <div class="character-card" onclick="openLore('')">
         < img class="character-img" src="images/character_sample.jpg" alt="林霧" onerror="this.src='https://picsum.photos/id/104/300/240'">
-        <div class="character-name">林霧</div>
+        <div class="character-name">1</div>
         <div class="character-title">迷途的登山者</div>
-        <div class="detail-row">身高：178cm</div>
-        <div class="detail-row">生日：2001.09.12</div>
-        <div class="detail-row">血型：A</div>
-        <div class="motto">「霧裡走過的人，不會真正消失。」</div>
+        <div class="detail-row">身高：cm</div>
+        <div class="detail-row">生日：</div>
+        <div class="detail-row">血型：</div>
+        <div class="motto">「xxxx。」</div>
     </div>
 </div>
 
@@ -248,12 +248,10 @@
 <div id="loreModal" class="modal">
     <div class="modal-content">
         <span class="close-modal" onclick="closeLore()">&times;</span>
-        <div class="lore-name" id="loreName">林霧</div>
+        <div class="lore-name" id="loreName">1</div>
         <div class="lore-text" id="loreText">
-            林霧並不是第一次來到鎖羅盆村。<br><br>
-            三年前，他的哥哥在同一片迷霧中失蹤，所有人都說「只是登山意外」。<br><br>
-            但他記得哥哥最後一封訊息：「這裡的霧會認人。」<br><br>
-            為了真相，他再次走進西貢結界，這次⋯⋯霧沒有趕他走。
+            林霧。<br><br>
+
         </div>
     </div>
 </div>
@@ -270,11 +268,7 @@
 </footer>
 
 <script>
-    const loreMap = {
-        "林霧": `林霧並不是第一次來到鎖羅盆村。<br><br>
-                三年前，他的哥哥在同一片迷霧中失蹤，所有人都說「只是登山意外」。<br><br>
-                但他記得哥哥最後一封訊息：「這裡的霧會認人。」<br><br>
-                為了真相，他再次走進西貢結界，這次⋯⋯霧沒有趕他走。`
+
     };
 
     function openLore(name) {
