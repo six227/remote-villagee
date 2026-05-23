@@ -115,9 +115,11 @@
         /* 區域二：三個資訊區塊 */
         .info-grid {
             display: flex;
-            flex-wrap: column;
+            flex-direction: row;
+            flex-wrap: wrap;
             gap: 2rem;
             margin-top: 2rem;
+            justify-content: center;
         }
 
         .info-card {
@@ -125,7 +127,7 @@
             border-radius: 16px;
             padding: 2rem;
             flex: 1;
-            min-width: 280px;
+            min-width: 250px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
