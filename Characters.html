@@ -1,1 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>角色介紹｜山 Mountain</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url('https://www.transparenttextures.com/patterns/cork-board.png'), #8b5a2b;
+            background-color: #a66f3c;
+            font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+            color: #2c2b28;
+        }
+
+        /* 導覽列 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c2525;
+            padding: 1.4rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e6c300;
+            font-family: 'Segoe UI', cursive;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #df3c33;
+        }
+
+        /* 角色區域 */
+        .characters-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        /* 紙卡（釘在軟木板上） */
+        .character-card {
+            background: #fffef7;
+            width: 300px;
+            border-radius: 4px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            padding: 1.5rem;
+            position: relative;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+            border: 1px solid #e0d6b0;
+        }
+
+        /* 圖釘效果 */
+        .character-card::before {
+            content: "📌";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px;
+            filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.2));
+        }
+
+        .character-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* 角色圖片 */
+        .character-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background: #d9cdb0;
+        }
+
+        /* 角色姓名 */
+        .character-name {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #3e2a1f;
+            margin-bottom: 0.25rem;
+        }
+
+        .character-title {
+            font-size: 0.9rem;
+            color: #b45f2b;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* 基本資料行 */
+        .detail-row {
+            font-size: 0.85rem;
+            margin: 0.3rem 0;
+            color: #4a3a2a;
+            border-bottom: 1px dotted #e2d4b5;
+            padding-bottom: 0.2rem;
+        }
+
+        .motto {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #8b4513;
+            background: #fcf8e8;
+            padding: 0.5rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* 彈窗（Lore） */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #fffef7;
+            max-width: 500px;
+            width: 90%;
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+            border: 1px solid #cbbf8c;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #8b4513;
+        }
+
+        .lore-name {
+            font-size: 1.7rem;
+            color: #6b3a1f;
+            margin-bottom: 1rem;
+        }
+
+        .lore-text {
+            line-height: 1.6;
+            font-size: 1rem;
+            color: #2c2b28;
+        }
+
+        /* 頁尾 */
+        .footer {
+            background-color: #8b3a3a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+            .characters-section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 導覽列 -->
+<div class="navbar">
+    <div class="logo">山 Mountain</div>
+    <div class="nav-links">
+        <a href=" ">HOME</a >
+        <a href="Background.html">BACKGROUND</a >
+        <a href="characters.html">CHARACTERS</a >
+        <a href="gameplay.html">GAMEPLAY</a >
+    </div>
+</div>
+
+<!-- 角色列表區（軟木板＋紙卡） -->
+<div class="characters-section">
+    <!-- 角色 1：範例角色 -->
+    <div class="character-card" onclick="openLore('林霧')">
+        < img class="character-img" src="images/character_sample.jpg" alt="林霧" onerror="this.src='https://picsum.photos/id/104/300/240'">
+        <div class="character-name">林霧</div>
+        <div class="character-title">迷途的登山者</div>
+        <div class="detail-row">身高：178cm</div>
+        <div class="detail-row">生日：2001.09.12</div>
+        <div class="detail-row">血型：A</div>
+        <div class="motto">「霧裡走過的人，不會真正消失。」</div>
+    </div>
+</div>
+
+<!-- 彈窗：角色背景故事 -->
+<div id="loreModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeLore()">&times;</span>
+        <div class="lore-name" id="loreName">林霧</div>
+        <div class="lore-text" id="loreText">
+            林霧並不是第一次來到鎖羅盆村。<br><br>
+            三年前，他的哥哥在同一片迷霧中失蹤，所有人都說「只是登山意外」。<br><br>
+            但他記得哥哥最後一封訊息：「這裡的霧會認人。」<br><br>
+            為了真相，他再次走進西貢結界，這次⋯⋯霧沒有趕他走。
+        </div>
+    </div>
+</div>
+
+<!-- 頁尾 -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="#" class="footer-link"><i class="fas fa-envelope"></i> 聯繫我們</a >
+        <a href="#" class="footer-link"><i class="fab fa-youtube"></i> YouTube</a >
+        <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a >
+        <a href="#" class="footer-link"><i class="fab fa-bilibili"></i> Bilibili</a >
+    </div>
+    <div>© 2025 《山 Mountain》 All Rights Reserved.</div>
+</footer>
+
+<script>
+    const loreMap = {
+        "林霧": `林霧並不是第一次來到鎖羅盆村。<br><br>
+                三年前，他的哥哥在同一片迷霧中失蹤，所有人都說「只是登山意外」。<br><br>
+                但他記得哥哥最後一封訊息：「這裡的霧會認人。」<br><br>
+                為了真相，他再次走進西貢結界，這次⋯⋯霧沒有趕他走。`
+    };
+
+    function openLore(name) {
+        const modal = document.getElementById('loreModal');
+        const loreName = document.getElementById('loreName');
+        const loreText = document.getElementById('loreText');
+        loreName.innerText = name;
+        loreText.innerHTML = loreMap[name] || "這個角色的故事仍在迷霧中等待揭曉……";
+        modal.style.display = 'flex';
+    }
+
+    function closeLore() {
+        document.getElementById('loreModal').style.display = 'none';
+    }
+
+    window.onclick = function(e) {
+        const modal = document.getElementById('loreModal');
+        if (e.target === modal) closeLore();
+    }
+</script>
+
+</body>
+</html>
