@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>角色介紹｜山 Mountain</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <title>Web · 分子式界面 | [H][i]</title>
+    <meta name="description" content="基于 SMILES 标识 [H][i] 构建的现代网页，适配 GitHub Pages">
     <style>
         * {
             margin: 0;
@@ -15,279 +13,342 @@
         }
 
         body {
-            background: url('https://www.transparenttextures.com/patterns/cork-board.png'), #8b5a2b;
-            background-color: #a66f3c;
-            font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
-            color: #2c2b28;
+            background: linear-gradient(145deg, #f8fafc 0%, #eef2ff 100%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
+            line-height: 1.5;
+            min-height: 100vh;
         }
 
-        /* 導覽列 */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #2c2525;
-            padding: 1.4rem 2rem;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #e6c300;
-            font-family: 'Segoe UI', cursive;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #df3c33;
-        }
-
-        /* 角色區域 */
-        .characters-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 3rem;
-        }
-
-        /* 紙卡（釘在軟木板上） */
-        .character-card {
-            background: #fffef7;
-            width: 300px;
-            border-radius: 4px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            padding: 1.5rem;
-            position: relative;
-            transition: transform 0.2s ease;
-            cursor: pointer;
-            border: 1px solid #e0d6b0;
-        }
-
-        /* 圖釘效果 */
-        .character-card::before {
-            content: "📌";
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 28px;
-            filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.2));
-        }
-
-        .character-card:hover {
-            transform: translateY(-6px);
-        }
-
-        /* 角色圖片 */
-        .character-img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            background: #d9cdb0;
-        }
-
-        /* 角色姓名 */
-        .character-name {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: #3e2a1f;
-            margin-bottom: 0.25rem;
-        }
-
-        .character-title {
-            font-size: 0.9rem;
-            color: #b45f2b;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        /* 基本資料行 */
-        .detail-row {
-            font-size: 0.85rem;
-            margin: 0.3rem 0;
-            color: #4a3a2a;
-            border-bottom: 1px dotted #e2d4b5;
-            padding-bottom: 0.2rem;
-        }
-
-        .motto {
-            margin-top: 1rem;
-            font-style: italic;
-            color: #8b4513;
-            background: #fcf8e8;
-            padding: 0.5rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            text-align: center;
-        }
-
-        /* 彈窗（Lore） */
-        .modal {
-            display: none;
+        /* 模拟“分子/粒子”背景装饰 */
+        .bg-molecule {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
         }
 
-        .modal-content {
-            background: #fffef7;
-            max-width: 500px;
-            width: 90%;
-            padding: 2rem;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 0 20px 30px rgba(0,0,0,0.3);
-            border: 1px solid #cbbf8c;
-        }
-
-        .close-modal {
+        .bg-molecule::before,
+        .bg-molecule::after {
+            content: "⚛️";
             position: absolute;
-            top: 12px;
-            right: 18px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #8b4513;
+            font-size: 18rem;
+            opacity: 0.03;
+            bottom: -5rem;
+            right: -5rem;
+            transform: rotate(15deg);
         }
 
-        .lore-name {
-            font-size: 1.7rem;
-            color: #6b3a1f;
-            margin-bottom: 1rem;
+        .bg-molecule::after {
+            content: "🔬";
+            top: -3rem;
+            left: -3rem;
+            font-size: 14rem;
+            opacity: 0.04;
+            transform: rotate(-10deg);
         }
 
-        .lore-text {
-            line-height: 1.6;
-            font-size: 1rem;
-            color: #2c2b28;
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 3rem;
+            position: relative;
+            z-index: 2;
         }
 
-        /* 頁尾 */
-        .footer {
-            background-color: #8b3a3a;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .footer-links {
+        /* 头部导航 */
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 2rem;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 3rem;
             display: flex;
-            justify-content: center;
-            gap: 2rem;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
+            gap: 1rem;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: none;
+            color: #2c3e66;
+            font-family: monospace;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        /* 主卡片区 - 致敬 [H][i] */
+        .hero-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            border: 1px solid rgba(148,163,184,0.2);
+            transition: all 0.2s;
+        }
+
+        .smiles-badge {
+            display: inline-flex;
+            background: #f1f5f9;
+            border-radius: 2rem;
+            padding: 0.25rem 1rem;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 1rem;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .smiles-badge strong {
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #0f172a, #2d3a6e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             margin-bottom: 1rem;
         }
 
-        .footer-link {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
+        .sub {
+            font-size: 1.2rem;
+            color: #334155;
+            max-width: 650px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
         }
 
-        @media (max-width: 700px) {
-            .characters-section {
-                padding: 2rem 1rem;
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+
+        .feature-card {
+            background: #ffffffdd;
+            backdrop-filter: blur(4px);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eef2ff;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.02);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+            border-color: #cbdffc;
+            background: white;
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mono-block {
+            background: #0f172a;
+            color: #e2e8f0;
+            border-radius: 1.2rem;
+            padding: 1.25rem;
+            font-family: 'Fira Code', 'SF Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1e293b;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            box-shadow: 0 2px 6px rgba(37,99,235,0.2);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: scale(0.98);
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 2rem 0.5rem 0.5rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+            }
+            .glass-nav {
+                flex-direction: column;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-
-<!-- 導覽列 -->
-<div class="navbar">
-    <div class="logo">山 Mountain</div>
-    <div class="nav-links">
-        <a href=" ">HOME</a >
-        <a href="Background.html">BACKGROUND</a >
-        <a href="#">CHARACTERS</a >
-        <a href="gameplay.html">GAMEPLAY</a >
-    </div>
-</div>
-
-<!-- 角色列表區（軟木板＋紙卡） -->
-<div class="characters-section">
-    <!-- 角色 1：範例角色 -->
-    <div class="character-card" onclick="openLore('')">
-        
-        <div class="character-title">迷途的登山者</div>
-        <div class="detail-row">身高：cm</div>
-        <div class="detail-row">生日：</div>
-        <div class="detail-row">血型：</div>
-        <div class="motto">「xxxx。」</div>
-    </div>
-</div>
-
-<!-- 彈窗：角色背景故事 -->
-<div id="loreModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeLore()">&times;</span>
-        <div class="lore-name" id="loreName">1</div>
-        <div class="lore-text" id="loreText">
-            林霧。<br><br>
-
+<div class="bg-molecule"></div>
+<div class="container">
+    <div class="glass-nav">
+        <div class="logo">
+            <span>⚛️ [H][i] · Web</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">分子式</a>
+            <a href="#">结构</a>
+            <a href="#">GitHub</a>
+            <a href="#">关于</a>
         </div>
     </div>
+
+    <div class="hero-card">
+        <div class="smiles-badge">
+            🔬 SMILES 标识符 · <strong>[H][i]</strong>
+        </div>
+        <h1>从化学符号到数字界面</h1>
+        <div class="sub">
+            基于输入结构 <code style="background:#eef2ff;padding:2px 8px;border-radius:20px;">&lt;smiles&gt;[H][i]&lt;/smiles&gt;</code> 生成的可视化项目
+        </div>
+        <div class="mono-block" style="margin-top: 1.8rem;">
+            // 这段代码直接复制至 GitHub → Pages 即可运行<br>
+            &lt;!-- 致敬分子信息学与前端设计 --&gt;<br>
+            echo "Hello, [H][i] world → 网页已激活"
+        </div>
+        <div style="margin-top: 1rem;">
+            <a href="#" class="btn btn-primary" id="copyBtn">📋 一键复制仓库文件</a>
+            <span style="margin-left: 1rem; font-size:0.85rem;">✨ 适配移动端 / 暗色友好</span>
+        </div>
+    </div>
+
+    <div class="grid-2col">
+        <div class="feature-card">
+            <div class="feature-icon">🧪</div>
+            <h3>[H][i] 解析</h3>
+            <p>SMILES 线性表示法中的氢原子与碘自由基，亦可看作<span style="background:#eef2ff;padding:0 4px;">"Hi"</span> 问候。本页面将其转化为极简科技风格。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📁</div>
+            <h3>一键部署 GitHub</h3>
+            <p>复制全部代码 → 新建 index.html → 推送仓库 → 开启 Pages。30秒内上线您的专属分子式网页。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>完全可定制</h3>
+            <p>CSS 变量清晰，结构语义化。您可以随意修改颜色、卡片内容、分子动画，无需任何构建工具。</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>零依赖 · 纯原生</h3>
+            <p>HTML/CSS/JS 三件套，无框架、无外部库，加载飞快，符合现代 Web 标准。</p>
+        </div>
+    </div>
+
+    <div style="background: #ffffffcc; border-radius: 1.5rem; padding: 1.5rem; border: 1px solid #e0e7ff;">
+        <h3 style="display: flex; gap:8px; align-items: center;">📄 如何使用该文件到 GitHub？</h3>
+        <ol style="margin: 1rem 0 0 1.2rem; display: flex; flex-direction: column; gap: 0.6rem;">
+            <li>✅ 全选本页面所有代码 (Ctrl+A / Cmd+A) 然后复制</li>
+            <li>✅ 在本地新建一个文件，命名为 <code style="background:#eef2ff;padding:2px 8px;border-radius:12px;">index.html</code></li>
+            <li>✅ 用记事本/VS Code 打开并将代码粘贴进去，保存</li>
+            <li>✅ 上传到 GitHub 仓库 (main 分支)</li>
+            <li>✅ 进入 Settings → Pages → 选择 "Deploy from branch" (main/root) 等待一分钟即可访问</li>
+        </ol>
+        <div class="mono-block" style="margin-top: 1rem; background:#1e293b;">
+            🌐 最终访问地址: https://你的用户名.github.io/仓库名/
+        </div>
+    </div>
+
+    <footer>
+        <p>🧬 基于输入文件 <strong>Web .png | [H][i]</strong> 生成 · 自由使用 & 修改 · MIT 风格</p>
+        <p style="margin-top: 0.5rem;">Made with ⚛️ for GitHub Pages</p>
+    </footer>
 </div>
 
-<!-- 頁尾 -->
-<footer class="footer">
-    <div class="footer-links">
-        <a href="#" class="footer-link"><i class="fas fa-envelope"></i> 聯繫我們</a >
-        <a href="#" class="footer-link"><i class="fab fa-youtube"></i> YouTube</a >
-        <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a >
-        <a href="#" class="footer-link"><i class="fab fa-bilibili"></i> Bilibili</a >
-    </div>
-    <div>© 2025 《山 Mountain》 All Rights Reserved.</div>
-</footer>
-
 <script>
-
-    };
-
-    function openLore(name) {
-        const modal = document.getElementById('loreModal');
-        const loreName = document.getElementById('loreName');
-        const loreText = document.getElementById('loreText');
-        loreName.innerText = name;
-        loreText.innerHTML = loreMap[name] || "這個角色的故事仍在迷霧中等待揭曉……";
-        modal.style.display = 'flex';
-    }
-
-    function closeLore() {
-        document.getElementById('loreModal').style.display = 'none';
-    }
-
-    window.onclick = function(e) {
-        const modal = document.getElementById('loreModal');
-        if (e.target === modal) closeLore();
+    // 简单的复制提示功能
+    const copyBtn = document.getElementById('copyBtn');
+    if(copyBtn) {
+        copyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // 获取当前页面的完整 HTML (本质就是自身)
+            const htmlContent = document.documentElement.outerHTML;
+            navigator.clipboard.writeText(htmlContent).then(() => {
+                alert('✅ 页面代码已复制到剪贴板！\n可以直接粘贴到 index.html 并上传 GitHub。');
+            }).catch(() => {
+                alert('⚠️ 手动复制：请全选页面代码并复制保存为 index.html');
+            });
+        });
     }
 </script>
-
 </body>
 </html>
