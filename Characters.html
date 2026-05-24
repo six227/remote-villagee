@@ -1,1 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>角色介紹｜山 Mountain</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* 導覽列 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c2525;
+            padding: 1.4rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e6c300;
+            font-family: 'Segoe UI', cursive;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #df3c33;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Q版小人區 */
+        .chibi-section {
+            text-align: center;
+            padding: 5rem 0 3rem;
+        }
+
+        .chibi-title {
+            font-size: 2rem;
+            color: #e6c300;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .chibi-grid {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .chibi-card {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chibi-card:hover {
+            transform: scale(1.1);
+        }
+
+        .chibi-img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #3a2a2a;
+            border: 3px solid #e6c300;
+            transition: 0.3s;
+        }
+
+        /* 鬼魂角色特殊樣式 */
+        .chibi-card.ghost .chibi-img {
+            border-color: #888;
+            filter: grayscale(0.3);
+            opacity: 0.85;
+        }
+
+        .chibi-name {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #e6c300;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .chibi-card:hover .chibi-name {
+            opacity: 1;
+        }
+
+        /* 角色介紹區塊 */
+        .character-detail {
+            background: rgba(44, 37, 37, 0.8);
+            border-radius: 20px;
+            margin: 3rem 0;
+            padding: 2rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            border: 1px solid #5a4a4a;
+            scroll-margin-top: 100px;
+        }
+
+        /* 鬼魂介紹區塊微透明 */
+        .character-detail.ghost {
+            background: rgba(44, 37, 37, 0.6);
+            border-color: #886666;
+        }
+
+        .character-detail-img {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .character-detail-img img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 16px;
+            border: 3px solid #e6c300;
+        }
+
+        .character-detail.ghost .character-detail-img img {
+            border-color: #888;
+            filter: grayscale(0.2);
+        }
+
+        .character-detail-info {
+            flex: 2;
+            min-width: 250px;
+        }
+
+        .character-detail-name {
+            font-size: 2rem;
+            color: #e6c300;
+            margin-bottom: 1rem;
+        }
+
+        .detail-item {
+            margin: 0.8rem 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .detail-label {
+            font-weight: bold;
+            color: #df3c33;
+            display: inline-block;
+            width: 70px;
+        }
+
+        .character-background {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #5a4a4a;
+            line-height: 1.6;
+        }
+
+        /* 回到頂部按鈕 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #df3c33;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: 0.3s;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .back-to-top:hover {
+            background-color: #e6c300;
+            transform: scale(1.1);
+        }
+
+        /* 頁尾 */
+        .footer {
+            background-color: #8b3a3a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-link:hover {
+            color: #e6c300;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .character-detail {
+                flex-direction: column;
+                text-align: center;
+            }
+            .detail-label {
+                width: auto;
+                margin-right: 0.5rem;
+            }
+            .chibi-grid {
+                gap: 0.5rem;
+            }
+            .chibi-card {
+                width: 80px;
+            }
+            .chibi-img {
+                width: 70px;
+                height: 70px;
+            }
+            .chibi-name {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 導覽列 -->
+<div class="navbar">
+    <div class="logo">山 Mountain</div>
+    <div class="nav-links">
+        <a href="index.html">HOME</a>
+        <a href="Background.html">BACKGROUND</a>
+        <a href="characters.html">CHARACTERS</a>
+        <a href="gameplay.html">GAMEPLAY</a>
+    </div>
+</div>
+
+<!-- Q版小人區 -->
+<div id="chibi-section" class="chibi-section">
+    <div class="container">
+        <h2 class="chibi-title">認識角色 / Meet the Characters</h2>
+        <div class="chibi-grid">
+            <!-- 第一排：活人 -->
+            <div class="chibi-card" onclick="scrollToCharacter('hero')">
+                <img class="chibi-img" src="https://picsum.photos/id/100/100/100" alt="主角">
+                <div class="chibi-name">主角</div>
+            </div>
+            <div class="chibi-card" onclick="scrollToCharacter('jiahao')">
+                <img class="chibi-img" src="https://picsum.photos/id/101/100/100" alt="嘉豪">
+                <div class="chibi-name">嘉豪</div>
+            </div>
+            <div class="chibi-card" onclick="scrollToCharacter('axin')">
+                <img class="chibi-img" src="https://picsum.photos/id/102/100/100" alt="阿欣">
+                <div class="chibi-name">阿欣</div>
+            </div>
+            <div class="chibi-card" onclick="scrollToCharacter('acong')">
+                <img class="chibi-img" src="https://picsum.photos/id/103/100/100" alt="阿聰">
+                <div class="chibi-name">阿聰</div>
+            </div>
+            <!-- 鬼魂少年阿替 -->
+            <div class="chibi-card ghost" onclick="scrollToCharacter('ati')">
+                <img class="chibi-img" src="https://picsum.photos/id/104/100/100" alt="阿替">
+                <div class="chibi-name">阿替</div>
+            </div>
+            <!-- 第二排：鬼魂 -->
+            <div class="chibi-card ghost" onclick="scrollToCharacter('afeng')">
+                <img class="chibi-img" src="https://picsum.photos/id/105/100/100" alt="阿鳯">
+                <div class="chibi-name">阿鳯</div>
+            </div>
+            <div class="chibi-card ghost" onclick="scrollToCharacter('aming')">
+                <img class="chibi-img" src="https://picsum.photos/id/106/100/100" alt="阿明">
+                <div class="chibi-name">阿明</div>
+            </div>
+            <div class="chibi-card ghost" onclick="scrollToCharacter('xiaoling')">
+                <img class="chibi-img" src="https://picsum.photos/id/107/100/100" alt="王小玲">
+                <div class="chibi-name">王小玲</div>
+            </div>
+            <div class="chibi-card ghost" onclick="scrollToCharacter('xiaolingmom')">
+                <img class="chibi-img" src="https://picsum.photos/id/108/100/100" alt="王小玲母親">
+                <div class="chibi-name">王小玲母親</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 角色詳細介紹 -->
+<div class="container">
+    <!-- 主角 -->
+    <div id="hero" class="character-detail">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/100/300/400" alt="主角">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">主角</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 175cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 03/15</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                遠足的發起人，喜歡山野卻沒想到會走入真正的結界。他是玩家在遊戲中的化身，每一個選擇都將影響結局。
+            </div>
+        </div>
+    </div>
+
+    <!-- 嘉豪 -->
+    <div id="jiahao" class="character-detail">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/101/300/400" alt="嘉豪">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">嘉豪</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 178cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 05/20</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                樂觀搞笑的擔當，總能在緊張時刻說出冷笑話。第一個發現山中怪聲的人，也是第一個消失在霧中的人。
+            </div>
+        </div>
+    </div>
+
+    <!-- 阿欣 -->
+    <div id="axin" class="character-detail">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/102/300/400" alt="阿欣">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">阿欣</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 女</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 162cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 09/12</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                團隊中最冷靜的人，擅長觀察與紀錄。她的筆記本裡，記下了鎖羅盆村每一個不合理的細節。
+            </div>
+        </div>
+    </div>
+
+    <!-- 阿聰 -->
+    <div id="acong" class="character-detail">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/103/300/400" alt="阿聰">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">阿聰</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 180cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 11/02</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                沉默但行動力極強，總是揹著巨大的登山包。他的背包裡，似乎裝著不屬於這個時代的東西。
+            </div>
+        </div>
+    </div>
+
+    <!-- 阿替（鬼魂少年） -->
+    <div id="ati" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/104/300/400" alt="阿替">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">阿替</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 165cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> ???</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                在霧中出現的神秘少年，帶領主角進入鎖羅盆村。他不是活人，卻比任何人都在乎這座村莊的秘密。
+            </div>
+        </div>
+    </div>
+
+    <!-- 阿鳯（鬼魂） -->
+    <div id="afeng" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/105/300/400" alt="阿鳯">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">阿鳯</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 女</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 160cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 07/07</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                鎖羅盆舊時的村民，溫柔但帶著濃濃的哀傷。她記得村莊消失前的最後一夜。
+            </div>
+        </div>
+    </div>
+
+    <!-- 阿明（鬼魂） -->
+    <div id="aming" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/106/300/400" alt="阿明">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">阿明</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 172cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 01/01</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                多年前在山中失蹤的登山客，靈魂一直困在結界裡。他只想回家，卻再也找不到出口。
+            </div>
+        </div>
+    </div>
+
+    <!-- 王小玲（鬼魂） -->
+    <div id="xiaoling" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/107/300/400" alt="王小玲">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">王小玲</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 女</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 145cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 12/25</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                鎖羅盆村的小女孩，也是最清楚結界真相的人。她的歌聲，會讓霧變得安靜。
+            </div>
+        </div>
+    </div>
+
+    <!-- 王小玲母親（鬼魂） -->
+    <div id="xiaolingmom" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/108/300/400" alt="王小玲母親">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">王小玲母親</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 女</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 160cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 06/18</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                一直在結界中尋找女兒的母親。兩人被困在同一片迷霧的不同角落，永遠錯過。
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 回到頂部按鈕 -->
+<div class="back-to-top" onclick="scrollToChibi()">
+    ↑
+</div>
+
+<!-- 頁尾 -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="#" class="footer-link"><i class="fas fa-envelope"></i> 聯繫我們</a>
+        <a href="#" class="footer-link"><i class="fab fa-youtube"></i> YouTube</a>
+        <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="#" class="footer-link"><i class="fab fa-bilibili"></i> Bilibili</a>
+    </div>
+    <div>© 2025 《山 Mountain》 All Rights Reserved.</div>
+</footer>
+
+<script>
+    function scrollToCharacter(characterId) {
+        const element = document.getElementById(characterId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    function scrollToChibi() {
+        const chibiSection = document.getElementById('chibi-section');
+        if (chibiSection) {
+            chibiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+</script>
+
+</body>
+</html>
