@@ -103,15 +103,7 @@
             object-fit: cover;
             border-radius: 50%;
             background-color: #3a2a2a;
-            border: 3px solid #e6c300;
             transition: 0.3s;
-        }
-
-        /* 鬼魂角色特殊樣式 */
-        .chibi-card.ghost .chibi-img {
-            border-color: #888;
-            filter: grayscale(0.3);
-            opacity: 0.85;
         }
 
         .chibi-name {
@@ -136,14 +128,7 @@
             display: flex;
             gap: 2rem;
             flex-wrap: wrap;
-            border: 1px solid #5a4a4a;
             scroll-margin-top: 100px;
-        }
-
-        /* 鬼魂介紹區塊微透明 */
-        .character-detail.ghost {
-            background: rgba(44, 37, 37, 0.6);
-            border-color: #886666;
         }
 
         .character-detail-img {
@@ -156,12 +141,6 @@
             width: 100%;
             max-width: 250px;
             border-radius: 16px;
-            border: 3px solid #e6c300;
-        }
-
-        .character-detail.ghost .character-detail-img img {
-            border-color: #888;
-            filter: grayscale(0.2);
         }
 
         .character-detail-info {
@@ -294,10 +273,9 @@
     <div class="container">
         <h2 class="chibi-title">認識角色 / Meet the Characters</h2>
         <div class="chibi-grid">
-            <!-- 第一排：活人 -->
             <div class="chibi-card" onclick="scrollToCharacter('hero')">
                 <img class="chibi-img" src="https://picsum.photos/id/100/100/100" alt="主角">
-                <div class="chibi-name">主角</div>
+                <div class="chibi-name">主角（你）</div>
             </div>
             <div class="chibi-card" onclick="scrollToCharacter('jiahao')">
                 <img class="chibi-img" src="https://picsum.photos/id/101/100/100" alt="嘉豪">
@@ -316,7 +294,7 @@
                 <img class="chibi-img" src="https://picsum.photos/id/104/100/100" alt="阿替">
                 <div class="chibi-name">阿替</div>
             </div>
-            <!-- 第二排：鬼魂 -->
+            
             <div class="chibi-card ghost" onclick="scrollToCharacter('afeng')">
                 <img class="chibi-img" src="https://picsum.photos/id/105/100/100" alt="阿鳯">
                 <div class="chibi-name">阿鳯</div>
