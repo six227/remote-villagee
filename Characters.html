@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
 
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    />
+  </head>
+  <body>
+    <div class="macbook-air-1">
+      <section class="layout">
+        <div class="content">
+          <div class="characters">Characters</div>
+          <div class="whatsapp-image-at-pm-parent">
+            <div class="macbook-air-1-item" id="whatsAppImageAtPM"></div>
+            <img
+              class="macbook-air-1-inner"
+              loading="lazy"
+              alt=""
+              src="./public/SIGN-UP@2x.png"
+              id="sIGNUPImage"
+            />
+          </div>
+        </div>
+      </section>
+      <div class="stack">
+        <div class="macbook-air-1-child"></div>
+        <h1 class="aaa" id="aAAText">AAA</h1>
+        <div class="cm">160cm</div>
+      </div>
+    </div>
+
+    <script>
+      var whatsAppImageAtPM = document.getElementById("whatsAppImageAtPM");
+      if (whatsAppImageAtPM) {
+        whatsAppImageAtPM.addEventListener("click", function (e) {
+          // Please sync "MacBook Air - 3" to the project
+        });
+      }
+      
+      var sIGNUPImage = document.getElementById("sIGNUPImage");
+      if (sIGNUPImage) {
+        sIGNUPImage.addEventListener("click", function (e) {
+          // Please sync "MacBook Air - 2" to the project
+        });
+      }
+      
+      var aAAText = document.getElementById("aAAText");
+      if (aAAText) {
+        aAAText.addEventListener("click", function (e) {
+          // Please sync "MacBook Air - 2" to the project
+        });
+      }
+      </script>
+  </body>
+</html>
