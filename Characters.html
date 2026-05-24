@@ -20,7 +20,7 @@
             color: white;
         }
 
-        /* 導覽列（與首頁一致） */
+        /* 導覽列 */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -79,7 +79,7 @@
         .chibi-grid {
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
         }
 
@@ -87,7 +87,10 @@
             text-align: center;
             cursor: pointer;
             transition: transform 0.3s;
-            width: 150px;
+            width: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .chibi-card:hover {
@@ -95,8 +98,8 @@
         }
 
         .chibi-img {
-            width: 120px;
-            height: 120px;
+            width: 90px;
+            height: 90px;
             object-fit: cover;
             border-radius: 50%;
             background-color: #3a2a2a;
@@ -104,13 +107,20 @@
             transition: 0.3s;
         }
 
+        /* 鬼魂角色特殊樣式 */
+        .chibi-card.ghost .chibi-img {
+            border-color: #888;
+            filter: grayscale(0.3);
+            opacity: 0.85;
+        }
+
         .chibi-name {
-            margin-top: 0.8rem;
-            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
             font-weight: bold;
             color: #e6c300;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.2s;
         }
 
         .chibi-card:hover .chibi-name {
@@ -130,17 +140,28 @@
             scroll-margin-top: 100px;
         }
 
+        /* 鬼魂介紹區塊微透明 */
+        .character-detail.ghost {
+            background: rgba(44, 37, 37, 0.6);
+            border-color: #886666;
+        }
+
         .character-detail-img {
             flex: 1;
-            min-width: 200px;
+            min-width: 180px;
             text-align: center;
         }
 
         .character-detail-img img {
             width: 100%;
-            max-width: 300px;
+            max-width: 250px;
             border-radius: 16px;
             border: 3px solid #e6c300;
+        }
+
+        .character-detail.ghost .character-detail-img img {
+            border-color: #888;
+            filter: grayscale(0.2);
         }
 
         .character-detail-info {
@@ -164,7 +185,7 @@
             font-weight: bold;
             color: #df3c33;
             display: inline-block;
-            width: 80px;
+            width: 70px;
         }
 
         .character-background {
@@ -239,6 +260,19 @@
                 width: auto;
                 margin-right: 0.5rem;
             }
+            .chibi-grid {
+                gap: 0.5rem;
+            }
+            .chibi-card {
+                width: 80px;
+            }
+            .chibi-img {
+                width: 70px;
+                height: 70px;
+            }
+            .chibi-name {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -248,10 +282,10 @@
 <div class="navbar">
     <div class="logo">山 Mountain</div>
     <div class="nav-links">
-        <a href=" ">HOME</a >
-        <a href="Background.html">BACKGROUND</a >
-        <a href="characters.html">CHARACTERS</a >
-        <a href="gameplay.html">GAMEPLAY</a >
+        <a href="index.html">HOME</a>
+        <a href="Background.html">BACKGROUND</a>
+        <a href="characters.html">CHARACTERS</a>
+        <a href="gameplay.html">GAMEPLAY</a>
     </div>
 </div>
 
@@ -260,20 +294,44 @@
     <div class="container">
         <h2 class="chibi-title">認識角色 / Meet the Characters</h2>
         <div class="chibi-grid">
-            <!-- 嘉豪 -->
+            <!-- 第一排：活人 -->
+            <div class="chibi-card" onclick="scrollToCharacter('hero')">
+                <img class="chibi-img" src="https://picsum.photos/id/100/100/100" alt="主角">
+                <div class="chibi-name">主角</div>
+            </div>
             <div class="chibi-card" onclick="scrollToCharacter('jiahao')">
-                < img class="chibi-img" src="https://picsum.photos/id/100/120/120" alt="嘉豪 Q版">
+                <img class="chibi-img" src="https://picsum.photos/id/101/100/100" alt="嘉豪">
                 <div class="chibi-name">嘉豪</div>
             </div>
-            <!-- 阿欣 -->
             <div class="chibi-card" onclick="scrollToCharacter('axin')">
-                < img class="chibi-img" src="https://picsum.photos/id/101/120/120" alt="阿欣 Q版">
+                <img class="chibi-img" src="https://picsum.photos/id/102/100/100" alt="阿欣">
                 <div class="chibi-name">阿欣</div>
             </div>
-            <!-- 阿鳯 -->
-            <div class="chibi-card" onclick="scrollToCharacter('afeng')">
-                < img class="chibi-img" src="https://picsum.photos/id/102/120/120" alt="阿鳯 Q版">
+            <div class="chibi-card" onclick="scrollToCharacter('acong')">
+                <img class="chibi-img" src="https://picsum.photos/id/103/100/100" alt="阿聰">
+                <div class="chibi-name">阿聰</div>
+            </div>
+            <!-- 鬼魂少年阿替 -->
+            <div class="chibi-card ghost" onclick="scrollToCharacter('ati')">
+                <img class="chibi-img" src="https://picsum.photos/id/104/100/100" alt="阿替">
+                <div class="chibi-name">阿替</div>
+            </div>
+            <!-- 第二排：鬼魂 -->
+            <div class="chibi-card ghost" onclick="scrollToCharacter('afeng')">
+                <img class="chibi-img" src="https://picsum.photos/id/105/100/100" alt="阿鳯">
                 <div class="chibi-name">阿鳯</div>
+            </div>
+            <div class="chibi-card ghost" onclick="scrollToCharacter('aming')">
+                <img class="chibi-img" src="https://picsum.photos/id/106/100/100" alt="阿明">
+                <div class="chibi-name">阿明</div>
+            </div>
+            <div class="chibi-card ghost" onclick="scrollToCharacter('xiaoling')">
+                <img class="chibi-img" src="https://picsum.photos/id/107/100/100" alt="王小玲">
+                <div class="chibi-name">王小玲</div>
+            </div>
+            <div class="chibi-card ghost" onclick="scrollToCharacter('xiaolingmom')">
+                <img class="chibi-img" src="https://picsum.photos/id/108/100/100" alt="王小玲母親">
+                <div class="chibi-name">王小玲母親</div>
             </div>
         </div>
     </div>
@@ -281,20 +339,36 @@
 
 <!-- 角色詳細介紹 -->
 <div class="container">
+    <!-- 主角 -->
+    <div id="hero" class="character-detail">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/100/300/400" alt="主角">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">主角（你）</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 175cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 03/15</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                you
+            </div>
+        </div>
+    </div>
+
     <!-- 嘉豪 -->
     <div id="jiahao" class="character-detail">
         <div class="character-detail-img">
-            < img src="https://picsum.photos/id/100/300/400" alt="嘉豪全身照">
+            <img src="https://picsum.photos/id/101/300/400" alt="嘉豪">
         </div>
         <div class="character-detail-info">
             <div class="character-detail-name">嘉豪</div>
             <div class="detail-item"><span class="detail-label">性別</span> 男</div>
             <div class="detail-item"><span class="detail-label">身高</span> 178cm</div>
-            <div class="detail-item"><span class="detail-label">生日</span> 2000.03.15</div>
-            <div class="detail-item"><span class="detail-label">血型</span> O</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 05/20</div>
             <div class="character-background">
                 <strong>角色背景</strong><br>
-                嘉豪是這次遠足的發起人，喜歡冒險但總是少一根筋。他相信香港山野間藏著許多未解之謎，沒想到這次真的遇上了⋯⋯
+                朋友
             </div>
         </div>
     </div>
@@ -302,35 +376,118 @@
     <!-- 阿欣 -->
     <div id="axin" class="character-detail">
         <div class="character-detail-img">
-            < img src="https://picsum.photos/id/101/300/400" alt="阿欣全身照">
+            <img src="https://picsum.photos/id/102/300/400" alt="阿欣">
         </div>
         <div class="character-detail-info">
             <div class="character-detail-name">阿欣</div>
             <div class="detail-item"><span class="detail-label">性別</span> 女</div>
-            <div class="detail-item"><span class="detail-label">身高</span> 165cm</div>
-            <div class="detail-item"><span class="detail-label">生日</span> 2001.07.22</div>
-            <div class="detail-item"><span class="detail-label">血型</span> A</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 162cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 09/12</div>
             <div class="character-background">
                 <strong>角色背景</strong><br>
-                ...。
+               朋友
             </div>
         </div>
     </div>
 
-    <!-- 阿鳯 -->
-    <div id="afeng" class="character-detail">
+    <!-- 阿聰 -->
+    <div id="acong" class="character-detail">
         <div class="character-detail-img">
-            < img src="https://picsum.photos/id/102/300/400" alt="阿鳯全身照">
+            <img src="https://picsum.photos/id/103/300/400" alt="阿聰">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">阿聰</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 180cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 11/02</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                朋友
+            </div>
+        </div>
+    </div>
+
+    <!-- 阿替（鬼魂少年） -->
+    <div id="ati" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/104/300/400" alt="阿替">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">阿替</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 165cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> ???</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                霧中少年
+            </div>
+        </div>
+    </div>
+
+    <!-- 阿鳯（鬼魂） -->
+    <div id="afeng" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/105/300/400" alt="阿鳯">
         </div>
         <div class="character-detail-info">
             <div class="character-detail-name">阿鳯</div>
             <div class="detail-item"><span class="detail-label">性別</span> 女</div>
-            <div class="detail-item"><span class="detail-label">身高</span> 170cm</div>
-            <div class="detail-item"><span class="detail-label">生日</span> 1999.11.02</div>
-            <div class="detail-item"><span class="detail-label">血型</span> B</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 160cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 07/07</div>
             <div class="character-background">
                 <strong>角色背景</strong><br>
-                ⋯⋯
+                新娘潭
+            </div>
+        </div>
+    </div>
+
+    <!-- 阿明（鬼魂） -->
+    <div id="aming" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/106/300/400" alt="阿明">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">阿明</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 男</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 150cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 01/01</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                猛鬼橋。
+            </div>
+        </div>
+    </div>
+
+    <!-- 王小玲（鬼魂） -->
+    <div id="xiaoling" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/107/300/400" alt="王小玲">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">王小玲</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 女</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 145cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 12/25</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                猛鬼橋
+            </div>
+        </div>
+    </div>
+
+    <!-- 王小玲母親（鬼魂） -->
+    <div id="xiaolingmom" class="character-detail ghost">
+        <div class="character-detail-img">
+            <img src="https://picsum.photos/id/108/300/400" alt="王小玲母親">
+        </div>
+        <div class="character-detail-info">
+            <div class="character-detail-name">王小玲母親</div>
+            <div class="detail-item"><span class="detail-label">性別</span> 女</div>
+            <div class="detail-item"><span class="detail-label">身高</span> 160cm</div>
+            <div class="detail-item"><span class="detail-label">生日</span> 06/18</div>
+            <div class="character-background">
+                <strong>角色背景</strong><br>
+                一直在結界中尋找女兒的母親。
             </div>
         </div>
     </div>
@@ -340,33 +497,6 @@
 <div class="back-to-top" onclick="scrollToChibi()">
     ↑
 </div>
-
-<!-- 頁尾 -->
-<footer class="footer">
-    <div class="footer-links">
-        <a href="#" class="footer-link"><i class="fas fa-envelope"></i> 聯繫我們</a >
-        <a href="#" class="footer-link"><i class="fab fa-youtube"></i> YouTube</a >
-        <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a >
-        <a href="#" class="footer-link"><i class="fab fa-bilibili"></i> Bilibili</a >
-    </div>
-    <div>© 2025 《山 Mountain》 All Rights Reserved.</div>
-</footer>
-
-<script>
-    function scrollToCharacter(characterId) {
-        const element = document.getElementById(characterId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-
-    function scrollToChibi() {
-        const chibiSection = document.getElementById('chibi-section');
-        if (chibiSection) {
-            chibiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
-</script>
 
 </body>
 </html>
