@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>玩法說明｜山 Mountain</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        /* 導覽列 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c2525;
+            padding: 1.4rem 2rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #e6c300;
+            font-family: 'Segoe UI', cursive;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #df3c33;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* GAMEPLAY 頁面 */
+        .gameplay-page {
+            padding: 5rem 0;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: #e6c300;
+            text-align: center;
+            margin-bottom: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .en-title {
+            font-size: 1rem;
+            color: #888;
+            margin-left: 0.5rem;
+            font-weight: normal;
+        }
+
+        /* 雙欄布局 */
+        .gameplay-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .gameplay-row {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .gameplay-card {
+            flex: 1;
+            min-width: 280px;
+            background: rgba(44, 37, 37, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gameplay-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .gameplay-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .gameplay-card-title {
+            font-size: 1.8rem;
+            color: #e6c300;
+            margin-bottom: 1rem;
+            border-left: 4px solid #df3c33;
+            padding-left: 1rem;
+        }
+
+        .gameplay-text {
+            color: #cccccc;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .gameplay-text-en {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 0.9rem;
+            padding-top: 1rem;
+            border-top: 1px solid #3a3a3a;
+        }
+
+        /* 操作方式特殊樣式（雙欄內再加雙欄） */
+        .controls-grid {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .control-item {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .control-key {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #df3c33;
+            background: #2c2525;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+
+        .control-desc {
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        /* 頁尾 */
+        .footer {
+            background-color: #8b3a3a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer-link:hover {
+            color: #e6c300;
+        }
+
+        /* 手機版調整 */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .gameplay-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 導覽列 -->
+<div class="navbar">
+    <div class="logo">山 Mountain</div>
+    <div class="nav-links">
+        <a href=" ">HOME</a >
+        <a href="Background.html">BACKGROUND</a >
+        <a href="characters.html">CHARACTERS</a >
+        <a href="gameplay.html">GAMEPLAY</a >
+    </div>
+</div>
+
+<!-- GAMEPLAY 主要內容 -->
+<div class="gameplay-page">
+    <div class="container">
+        <h2 class="page-title">玩法說明 <span class="en-title">Gameplay</span></h2>
+
+        <div class="gameplay-grid">
+            
+            <!-- 第一行：多重結局 + 線索收集 -->
+            <div class="gameplay-row">
+                <!-- 多重結局 -->
+                <div class="gameplay-card">
+                    <div class="gameplay-icon">🎭</div>
+                    <h3 class="gameplay-card-title">多重結局 <span style="font-size: 0.9rem; color: #888;">Multiple Endings</span></h3>
+                    <div class="gameplay-text">
+                        在遊戲中，你的每一個關鍵選擇都會導向不同的命運。歸還遺物，亡魂得以解脫，你也將獲得祝福；若選擇佔為己有，則可能永遠被困在迷霧之中。
+                    </div>
+                    <div class="gameplay-text-en">
+                        Every critical choice you make leads to a different fate. Return the lost items, and the spirits will find peace, blessing you in return. But if you choose to keep them for yourself, you may become trapped in the mist forever.
+                    </div>
+                </div>
+
+                <!-- 線索收集 -->
+                <div class="gameplay-card">
+                    <div class="gameplay-icon">🔍</div>
+                    <h3 class="gameplay-card-title">線索收集 <span style="font-size: 0.9rem; color: #888;">Clue Collection</span></h3>
+                    <div class="gameplay-text">
+                        在鎖羅盆村、新娘潭、猛鬼橋等場景中，隱藏著亡魂們遺失的物品。收集這些線索，不僅能拼湊出意外的真相，更能幫助亡魂解脫。
+                    </div>
+                    <div class="gameplay-text-en">
+                        Hidden across locations like So Lo Pun Village, Bride's Pool, and Unfortunate Bridge are the lost belongings of lingering spirits. Collecting these clues not only helps piece together the truth but also allows the spirits to find peace.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 第二行：操作方式（置中） -->
+            <div class="gameplay-row">
+                <div class="gameplay-card">
+                    <div class="gameplay-icon">🖱️</div>
+                    <h3 class="gameplay-card-title">操作方式 <span style="font-size: 0.9rem; color: #888;">Controls</span></h3>
+                    
+                    <div class="controls-grid">
+                        <div class="control-item">
+                            <div class="control-key">WASD / 方向鍵</div>
+                            <div class="control-desc">移動 / Move</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">滑鼠點擊</div>
+                            <div class="control-desc">互動 / Interact</div>
+                        </div>
+                        <div class="control-item">
+                            <div class="control-key">空格 / Space</div>
+                            <div class="control-desc">跳躍 / Jump</div>
+                        </div>
+                    </div>
+
+                    <div class="gameplay-text-en" style="margin-top: 1rem; border-top: 1px solid #3a3a3a; padding-top: 1rem;">
+                        Use WASD or arrow keys to move, click to interact with objects and characters, and press the space bar to jump across obstacles.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- 頁尾 -->
+<footer class="footer">
+    <div class="footer-links">
+        <a href="#" class="footer-link"><i class="fas fa-envelope"></i> 聯繫我們</a >
+        <a href="#" class="footer-link"><i class="fab fa-youtube"></i> YouTube</a >
+        <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a >
+        <a href="#" class="footer-link"><i class="fab fa-bilibili"></i> Bilibili</a >
+    </div>
+    <div>© 2025 《山 Mountain》 All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
