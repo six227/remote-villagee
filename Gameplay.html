@@ -83,7 +83,7 @@
             font-weight: normal;
         }
 
-        /* 多重結局區塊（共用） */
+        /* 多重結局區塊 */
         .ending-section {
             margin: 4rem 0;
             padding: 2rem;
@@ -115,73 +115,62 @@
             margin: 0 auto 2rem;
         }
 
-        .ending-dual {
+        /* 三個結局卡片容器 */
+        .endings-container {
             display: flex;
+            flex-direction: column;
             gap: 2rem;
-            flex-wrap: wrap;
         }
 
-        .ending-image {
-            flex: 1;
-            min-width: 250px;
-            background: #2a2a2a;
-            border-radius: 16px;
+        /* 單個結局卡片（左圖右文） */
+        .ending-card {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .ending-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .ending-card-img {
+            flex: 1;
+            min-width: 200px;
+            border-radius: 16px;
             overflow: hidden;
         }
 
-        .ending-image img {
+        .ending-card-img img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            border-radius: 16px;
         }
 
-        .ending-content {
-            flex: 1;
-            min-width: 250px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 16px;
-            padding: 1.5rem;
-            position: relative;
+        .ending-card-content {
+            flex: 2;
         }
 
-        .ending-text {
-            color: #ffffff;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .ending-text-en {
-            color: #aaa;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .arrow-btn {
-            position: absolute;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            width: 40px;
-            height: 40px;
-            background-color: #df3c33;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+        .ending-card-title {
             font-size: 1.5rem;
-            font-weight: bold;
-            transition: 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            color: #e6c300;
+            margin-bottom: 0.8rem;
         }
 
-        .arrow-btn:hover {
-            background-color: #e6c300;
-            transform: scale(1.05);
+        .ending-card-text {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .ending-card-text-en {
+            color: #aaa;
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
 
         /* 線索收集 - 九宮格 */
@@ -275,17 +264,13 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+            .ending-card {
+                flex-direction: column;
+                text-align: center;
+            }
             .clue-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
-            }
-            .ending-dual {
-                flex-direction: column;
-            }
-            .arrow-btn {
-                position: static;
-                margin-top: 1rem;
-                margin-left: auto;
             }
         }
 
@@ -298,7 +283,7 @@
 </head>
 <body>
 
-    <!-- 導覽列 -->
+<!-- 導覽列 -->
 <div class="navbar">
     <div class="logo">山 Mountain</div>
     <div class="nav-links">
@@ -324,20 +309,56 @@
                 At Bride's Pool, players will encounter the weeping bride A Feng. Along the way, they will discover her lost belongings — a comb, embroidered shoes, and a jewelry box. The player's choices — whether to pick them up and whether to return them — will lead to completely different fates.
             </p >
 
-            <div class="ending-dual">
-                <div class="ending-image">
-                    < img id="brideImg" src="images/bride_good.jpg" alt="新娘潭結局">
+            <div class="endings-container">
+                <!-- 好結局 -->
+                <div class="ending-card">
+                    <div class="ending-card-img">
+                        < img src="images/bride_good.jpg" alt="好結局">
+                    </div>
+                    <div class="ending-card-content">
+                        <div class="ending-card-title">好結局：歸還遺物</div>
+                        <div class="ending-card-text">
+                            如果玩家撿起部分或全部遺物，並歸還給新娘阿鳳，她將與等待已久的新郎重逢。主角會獲得新娘的頭紗（祝福道具），阿鳳與新郎走向光芒，水面泛起溫柔的波光。
+                        </div>
+                        <div class="ending-card-text-en">
+                            <strong>Good Ending: Return the Belongings</strong><br>
+                            If the player picks up some or all of the lost items and returns them to the bride A Feng, she will reunite with her long-waiting groom. The protagonist receives the bride's veil (a blessed item), as A Feng and her groom walk into the light, gentle ripples spreading across the water.
+                        </div>
+                    </div>
                 </div>
-                <div class="ending-content">
-                    <div class="ending-text" id="brideText">
-                        <strong>好結局：歸還遺物</strong><br>
-                        如果玩家撿起部分或全部遺物，並歸還給新娘阿鳳，她將與等待已久的新郎重逢。主角會獲得新娘的頭紗（祝福道具），阿鳳與新郎走向光芒，水面泛起溫柔的波光。
+
+                <!-- 壞結局 -->
+                <div class="ending-card">
+                    <div class="ending-card-img">
+                        < img src="images/bride_bad.jpg" alt="壞結局">
                     </div>
-                    <div class="ending-text-en" id="brideTextEn">
-                        <strong>Good Ending: Return the Belongings</strong><br>
-                        If the player picks up some or all of the lost items and returns them to the bride A Feng, she will reunite with her long-waiting groom. The protagonist receives the bride's veil (a blessed item), as A Feng and her groom walk into the light, gentle ripples spreading across the water.
+                    <div class="ending-card-content">
+                        <div class="ending-card-title">壞結局：新娘的邀請</div>
+                        <div class="ending-card-text">
+                            如果玩家企圖佔有遺物，說謊說沒有拿到，阿鳳會憤怒地將主角拖入潭底。無數蒼白的手抓住主角，永遠被困在新娘潭，解鎖「新娘的邀請」結局。
+                        </div>
+                        <div class="ending-card-text-en">
+                            <strong>Bad Ending: The Bride's Invitation</strong><br>
+                            If the player tries to keep the belongings and lies about not having them, A Feng will angrily drag the protagonist into the pool. Countless pale hands grab the protagonist, trapping them forever beneath Bride's Pool, unlocking the 'Bride's Invitation' ending.
+                        </div>
                     </div>
-                    <div class="arrow-btn" id="brideNextBtn">→</div>
+                </div>
+
+                <!-- 中立路線 -->
+                <div class="ending-card">
+                    <div class="ending-card-img">
+                        < img src="images/bride_neutral.jpg" alt="中立路線">
+                    </div>
+                    <div class="ending-card-content">
+                        <div class="ending-card-title">中立路線：苦苦哀求</div>
+                        <div class="ending-card-text">
+                            如果玩家一樣東西都沒有拿，阿鳳不會生氣，只是哀傷地請求主角幫忙去拿遺物。主角答應後，去取回梳子、繡花鞋和首飾盒，後續可走向好結局。
+                        </div>
+                        <div class="ending-card-text-en">
+                            <strong>Neutral Path: A Pleading Cry</strong><br>
+                            If the player takes nothing at all, A Feng does not get angry. Instead, she sorrowfully begs the protagonist to help retrieve her lost belongings. The protagonist agrees, retrieves the comb, embroidered shoes, and jewelry box, and can still reach the good ending.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -352,20 +373,56 @@
                 At Unfortunate Bridge, players will encounter the spirits of the 1955 bus crash. Along the way, they will discover three lost items — A Ming's harmonica, Wang Xiaoling's schoolbag, and her mother's scarf. The player's choices — whether to pick them up and whether to return them — will lead to completely different fates.
             </p >
 
-            <div class="ending-dual">
-                <div class="ending-image">
-                    < img id="bridgeImg" src="images/bridge_good.jpg" alt="猛鬼橋結局">
+            <div class="endings-container">
+                <!-- 好結局 -->
+                <div class="ending-card">
+                    <div class="ending-card-img">
+                        < img src="images/bridge_good.jpg" alt="好結局">
+                    </div>
+                    <div class="ending-card-content">
+                        <div class="ending-card-title">好結局：歸還遺物</div>
+                        <div class="ending-card-text">
+                            如果玩家撿起遺物並歸還，阿明重新吹起《月光光》，王小玲與母親重逢，三十二位亡魂一起走向光芒。主角獲得發光的車票和一小截藍色毛線。
+                        </div>
+                        <div class="ending-card-text-en">
+                            <strong>Good Ending: Return the Belongings</strong><br>
+                            If the player picks up and returns the lost items, A Ming plays "Moonlight" again, Wang Xiaoling reunites with her mother, and all 32 spirits walk into the light together. The protagonist receives a glowing ticket and a small piece of blue yarn.
+                        </div>
+                    </div>
                 </div>
-                <div class="ending-content">
-                    <div class="ending-text" id="bridgeText">
-                        <strong>好結局：歸還遺物</strong><br>
-                        如果玩家撿起遺物並歸還，阿明重新吹起《月光光》，王小玲與母親重逢，三十二位亡魂一起走向光芒。主角獲得發光的車票和一小截藍色毛線。
+
+                <!-- 壞結局 -->
+                <div class="ending-card">
+                    <div class="ending-card-img">
+                        < img src="images/bridge_bad.jpg" alt="壞結局">
                     </div>
-                    <div class="ending-text-en" id="bridgeTextEn">
-                        <strong>Good Ending: Return the Belongings</strong><br>
-                        If the player picks up and returns the lost items, A Ming plays "Moonlight" again, Wang Xiaoling reunites with her mother, and all 32 spirits walk into the light together. The protagonist receives a glowing ticket and a small piece of blue yarn.
+                    <div class="ending-card-content">
+                        <div class="ending-card-title">壞結局：永遠被困</div>
+                        <div class="ending-card-text">
+                            如果玩家企圖佔有遺物，亡魂們會憤怒地將主角困在猛鬼橋下，永遠無法離開，成為第33個亡魂。
+                        </div>
+                        <div class="ending-card-text-en">
+                            <strong>Bad Ending: Trapped Forever</strong><br>
+                            If the player tries to keep the belongings, the spirits will angrily trap the protagonist beneath Unfortunate Bridge, never to leave, becoming the 33rd spirit.
+                        </div>
                     </div>
-                    <div class="arrow-btn" id="bridgeNextBtn">→</div>
+                </div>
+
+                <!-- 中立路線 -->
+                <div class="ending-card">
+                    <div class="ending-card-img">
+                        < img src="images/bridge_neutral.jpg" alt="中立路線">
+                    </div>
+                    <div class="ending-card-content">
+                        <div class="ending-card-title">中立路線：答應幫忙</div>
+                        <div class="ending-card-text">
+                            如果玩家沒有拿任何遺物，亡魂們會哀傷地請求主角幫忙。主角答應後，取回遺物歸還，最終走向好結局。
+                        </div>
+                        <div class="ending-card-text-en">
+                            <strong>Neutral Path: Promise to Help</strong><br>
+                            If the player takes nothing at all, the spirits sorrowfully beg the protagonist for help. The protagonist agrees, retrieves the items, returns them, and ultimately reaches the good ending.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -488,86 +545,7 @@
 </div>
 
 <script>
-    // ===== 新娘潭結局切換 =====
-    const brideEndings = [
-        {
-            img: "images/bride_good.jpg",
-            text: "<strong>好結局：歸還遺物</strong><br>如果玩家撿起部分或全部遺物，並歸還給新娘阿鳳，她將與等待已久的新郎重逢。主角會獲得新娘的頭紗（祝福道具），阿鳳與新郎走向光芒，水面泛起溫柔的波光。",
-            textEn: "<strong>Good Ending: Return the Belongings</strong><br>If the player picks up some or all of the lost items and returns them to the bride A Feng, she will reunite with her long-waiting groom. The protagonist receives the bride's veil (a blessed item), as A Feng and her groom walk into the light, gentle ripples spreading across the water."
-        },
-        {
-            img: "images/bride_bad.jpg",
-            text: "<strong>壞結局：新娘的邀請</strong><br>如果玩家企圖佔有遺物，說謊說沒有拿到，阿鳳會憤怒地將主角拖入潭底。無數蒼白的手抓住主角，永遠被困在新娘潭，解鎖「新娘的邀請」結局。",
-            textEn: "<strong>Bad Ending: The Bride's Invitation</strong><br>If the player tries to keep the belongings and lies about not having them, A Feng will angrily drag the protagonist into the pool. Countless pale hands grab the protagonist, trapping them forever beneath Bride's Pool, unlocking the 'Bride's Invitation' ending."
-        },
-        {
-            img: "images/bride_neutral.jpg",
-            text: "<strong>中立路線：苦苦哀求</strong><br>如果玩家一樣東西都沒有拿，阿鳳不會生氣，只是哀傷地請求主角幫忙去拿遺物。主角答應後，去取回梳子、繡花鞋和首飾盒，後續可走向好結局。",
-            textEn: "<strong>Neutral Path: A Pleading Cry</strong><br>If the player takes nothing at all, A Feng does not get angry. Instead, she sorrowfully begs the protagonist to help retrieve her lost belongings. The protagonist agrees, retrieves the comb, embroidered shoes, and jewelry box, and can still reach the good ending."
-        }
-    ];
-
-    // ===== 猛鬼橋結局切換 =====
-    const bridgeEndings = [
-        {
-            img: "images/bridge_good.jpg",
-            text: "<strong>好結局：歸還遺物</strong><br>如果玩家撿起遺物並歸還，阿明重新吹起《月光光》，王小玲與母親重逢，三十二位亡魂一起走向光芒。主角獲得發光的車票和一小截藍色毛線。",
-            textEn: "<strong>Good Ending: Return the Belongings</strong><br>If the player picks up and returns the lost items, A Ming plays 'Moonlight' again, Wang Xiaoling reunites with her mother, and all 32 spirits walk into the light together. The protagonist receives a glowing ticket and a small piece of blue yarn."
-        },
-        {
-            img: "images/bridge_bad.jpg",
-            text: "<strong>壞結局：永遠被困</strong><br>如果玩家企圖佔有遺物，亡魂們會憤怒地將主角困在猛鬼橋下，永遠無法離開，成為第33個亡魂。",
-            textEn: "<strong>Bad Ending: Trapped Forever</strong><br>If the player tries to keep the belongings, the spirits will angrily trap the protagonist beneath Unfortunate Bridge, never to leave, becoming the 33rd spirit."
-        },
-        {
-            img: "images/bridge_neutral.jpg",
-            text: "<strong>中立路線：答應幫忙</strong><br>如果玩家沒有拿任何遺物，亡魂們會哀傷地請求主角幫忙。主角答應後，取回遺物歸還，最終走向好結局。",
-            textEn: "<strong>Neutral Path: Promise to Help</strong><br>If the player takes nothing at all, the spirits sorrowfully beg the protagonist for help. The protagonist agrees, retrieves the items, returns them, and ultimately reaches the good ending."
-        }
-    ];
-
-    let brideIndex = 0;
-    let bridgeIndex = 0;
-
-    const brideImg = document.getElementById('brideImg');
-    const brideText = document.getElementById('brideText');
-    const brideTextEn = document.getElementById('brideTextEn');
-    const brideNextBtn = document.getElementById('brideNextBtn');
-
-    const bridgeImg = document.getElementById('bridgeImg');
-    const bridgeText = document.getElementById('bridgeText');
-    const bridgeTextEn = document.getElementById('bridgeTextEn');
-    const bridgeNextBtn = document.getElementById('bridgeNextBtn');
-
-    function updateBride(index) {
-        const e = brideEndings[index % brideEndings.length];
-        brideImg.src = e.img;
-        brideText.innerHTML = e.text;
-        brideTextEn.innerHTML = e.textEn;
-    }
-
-    function updateBridge(index) {
-        const e = bridgeEndings[index % bridgeEndings.length];
-        bridgeImg.src = e.img;
-        bridgeText.innerHTML = e.text;
-        bridgeTextEn.innerHTML = e.textEn;
-    }
-
-    if (brideNextBtn) {
-        brideNextBtn.addEventListener('click', () => {
-            brideIndex++;
-            updateBride(brideIndex);
-        });
-    }
-
-    if (bridgeNextBtn) {
-        bridgeNextBtn.addEventListener('click', () => {
-            bridgeIndex++;
-            updateBridge(bridgeIndex);
-        });
-    }
-
-    // ===== 線索收集點擊展開/收起 =====
+    // 線索收集點擊展開/收起
     const clueCards = document.querySelectorAll('.clue-card');
     
     clueCards.forEach(card => {
