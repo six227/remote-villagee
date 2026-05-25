@@ -136,7 +136,8 @@
 .character-hotspot {
     position: absolute;
     cursor: pointer;
-    transform: translateX(-50%);
+    transition: transform 0.2s ease;
+    width: 200px;
     text-align: center;
 }
 
@@ -146,10 +147,10 @@
 }
 
 .hotspot-img {
-    width: 550%;
+    width: 500%;
     display: block;
+    margin: 0 auto;
     pointer-events: none;
-    transition: transform 0.2s ease;
 }
 
 .hotspot-name {
