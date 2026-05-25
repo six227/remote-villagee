@@ -144,53 +144,50 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-
-.scene-bg {
-    width: 100%;
-    display: block;
-    border-radius: 24px;
-    pointer-events: none;
-}
-
-.character-hotspot {
-    position: absolute;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    width: 26%;
-    text-align: center;
-}
-
-.character-hotspot:hover {
-    transform: scale(1.2);
-    z-index: 10;
-}
-
-.hotspot-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    pointer-events: none;
-}
-
-.hotspot-name {
-    margin-top: 6px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #e6c300;
-    background: rgba(0,0,0,0.6);
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 20px;
-    opacity: 0;
-    transition: opacity 0.2s;
-    white-space: nowrap;
-}
-
-.character-hotspot:hover .hotspot-name {
-    opacity: 1;
-}
+        .scene-bg {
+            width: 100%;
+            display: block;
+            border-radius: 24px;
+            pointer-events: none;
+        }
         
-        /* 角色介紹區塊 */
+        .character-hotspot {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            width: 26%;
+            text-align: center;
+        }
+        
+        .character-hotspot:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .hotspot-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none;
+        }
+        .hotspot-name {
+            margin-top: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #e6c300;
+            background: rgba(0,0,0,0.6);
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+        .character-hotspot:hover .hotspot-name {
+            opacity: 1;
+        }
+        
+        /* 角色介紹區 */
         .character-detail {
             background: rgba(44, 37, 37, 0.8);
             border-radius: 20px;
@@ -385,7 +382,7 @@
             <div class="character-detail-name">阿替</div>
             <div class="detail-item"><span class="detail-label">Gender:</span> Male 男</div>
             <div class="detail-item"><span class="detail-label">heigh:</span> 165cm</div>
-            <div class="detail-item"><span class="detail-label">brithdat:</span> ???</div>
+            <div class="detail-item"><span class="detail-label">brithday:</span> ???</div>
             <div class="character-background">
                 <strong>角色背景</strong><br>
                 A white-haired boy who appears in the mist, with blood dripping from his fingers. He knows everything about So Lo Pun Village, 
@@ -403,7 +400,7 @@
             <div class="character-detail-name">阿鳯</div>
             <div class="detail-item"><span class="detail-label">Gender:</span> female 女</div>
             <div class="detail-item"><span class="detail-label">heigh:</span> 160cm</div>
-            <div class="detail-item"><span class="detail-label">brithdat:</span> 07/07</div>
+            <div class="detail-item"><span class="detail-label">brithday:</span> 07/07</div>
             <div class="character-background">
                 <strong>角色背景</strong><br>
                 A spirit from the legend of Bride's Pool. It is said that she fell into the pool along with her sedan chair on her wedding day. 
@@ -421,7 +418,7 @@
             <div class="character-detail-name">阿明</div>
             <div class="detail-item"><span class="detail-label">Gender:</span> Male 男</div>
             <div class="detail-item"><span class="detail-label">heigh:</span> 172cm</div>
-            <div class="detail-item"><span class="detail-label">brithdat:</span> 01/01</div>
+            <div class="detail-item"><span class="detail-label">brithday:</span> 01/01</div>
             <div class="character-background">
                 <strong>角色背景</strong><br>
                 A spirit of Unfortunate Bridge. On October 8, 1955, a bus carrying passengers crashed off a bridge in Sai Kung, 
@@ -439,7 +436,7 @@
             <div class="character-detail-name">王小玲</div>
             <div class="detail-item"><span class="detail-label">Gender:</span> female 女</div>
             <div class="detail-item"><span class="detail-label">heigh:</span> 145cm</div>
-            <div class="detail-item"><span class="detail-label">brithdat:</span> 12/25</div>
+            <div class="detail-item"><span class="detail-label">brithday:</span> 12/25</div>
             <div class="character-background">
                 <strong>角色背景</strong><br>
                 A spirit of Unfortunate Bridge. She died with her mother in the 1955 bus crash. She was very young, carrying a schoolbag with her homework book and a stuffed toy.<br>
@@ -456,7 +453,7 @@
             <div class="character-detail-name">王小玲母親</div>
             <div class="detail-item"><span class="detail-label">Gender:</span> female 女</div>
             <div class="detail-item"><span class="detail-label">heigh:</span> 160cm</div>
-            <div class="detail-item"><span class="detail-label">brithdat:</span> 06/18</div>
+            <div class="detail-item"><span class="detail-label">brithday:</span> 06/18</div>
             <div class="character-background">
                 <strong>角色背景</strong><br>
                 A spirit of Unfortunate Bridge. She died with her daughter Xiaoling in the 1955 bus crash. She was a young mother taking her daughter on the bus to visit her parents that night.<br>
@@ -466,26 +463,27 @@
     </div>
 </div>
 
-<!-- 回到頂部按鈕 -->
-<div class="back-to-top" onclick="scrollToChibi()">
-    ↑
-</div>
-
-<script>
-    function scrollToCharacter(characterId) {
-        const element = document.getElementById(characterId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    <!-- 回到頂部按鈕 -->
+    <div class="back-to-top" onclick="scrollToChibi()">
+        ↑
+    </div>
+    
+    <script>
+        function scrollToCharacter(characterId) {
+            const element = document.getElementById(characterId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
-    }
-
-    function scrollToChibi() {
-        const chibiSection = document.getElementById('chibi-section');
-        if (chibiSection) {
-            chibiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        function scrollToChibi() {
+            const chibiSection = document.getElementById('chibi-section');
+            if (chibiSection) {
+                chibiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
-    }
-</script>
-
+        
+    </script>
+    
 </body>
 </html>
