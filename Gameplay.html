@@ -83,127 +83,22 @@
             font-weight: normal;
         }
 
-        /* 線索收集 - 瀑布式 */
-        .clue-section {
-            margin-bottom: 4rem;
-        }
-
-        .clue-title {
-            font-size: 1.8rem;
-            color: #e6c300;
-            margin-bottom: 2rem;
-            border-left: 4px solid #df3c33;
-            padding-left: 1rem;
-        }
-
-        .clue-item {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: rgba(44, 37, 37, 0.5);
-            border-radius: 16px;
-            transition: 0.3s;
-        }
-
-        .clue-item:hover {
-            background: rgba(44, 37, 37, 0.8);
-            transform: translateX(5px);
-        }
-
-        .clue-icon {
-            font-size: 2rem;
-            flex-shrink: 0;
-        }
-
-        .clue-content {
-            flex: 1;
-        }
-
-        .clue-text {
-            color: #cccccc;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-
-        .clue-text-en {
-            color: #aaa;
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-
-        /* 操作方式 - 單區域 */
-        .controls-section {
-            margin-bottom: 4rem;
-            padding: 2rem;
-            background: rgba(44, 37, 37, 0.6);
-            border-radius: 20px;
-        }
-
-        .controls-title {
-            font-size: 1.8rem;
-            color: #e6c300;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .controls-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .controls-wrapper .control-item {
-            flex: 0 1 auto;
-            min-width: 120px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 1rem;
-            border-radius: 12px;
-        }
-
-        .controls-wrapper .control-key {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #df3c33;
-            background: #2c2525;
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-        }
-
-        .controls-wrapper .control-desc {
-            font-size: 0.85rem;
-            color: #ccc;
-        }
-
-        .controls-en {
-            color: #aaa;
-            font-size: 0.9rem;
-            text-align: center;
-            padding-top: 1rem;
-            border-top: 1px solid #3a3a3a;
-        }
-
-        /* 新娘潭結局區塊 */
-        .bridal-pool-section {
+        /* 多重結局區塊（共用） */
+        .ending-section {
             margin: 4rem 0;
             padding: 2rem;
             background: rgba(44, 37, 37, 0.6);
             border-radius: 24px;
         }
 
-        .bridal-title {
+        .ending-title {
             font-size: 1.8rem;
             color: #e6c300;
             text-align: center;
             margin-bottom: 1rem;
         }
 
-        .bridal-intro {
+        .ending-intro {
             color: #cccccc;
             line-height: 1.6;
             text-align: center;
@@ -211,7 +106,7 @@
             margin: 0 auto 0.5rem;
         }
 
-        .bridal-intro-en {
+        .ending-intro-en {
             color: #aaa;
             font-size: 0.9rem;
             line-height: 1.6;
@@ -289,21 +184,100 @@
             transform: scale(1.05);
         }
 
+        /* 線索收集 - 九宮格 */
+        .clue-section {
+            margin-bottom: 4rem;
+        }
+
+        .clue-title {
+            font-size: 1.8rem;
+            color: #e6c300;
+            margin-bottom: 2rem;
+            border-left: 4px solid #df3c33;
+            padding-left: 1rem;
+        }
+
+        .clue-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .clue-card {
+            background: rgba(44, 37, 37, 0.8);
+            border-radius: 16px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .clue-card:hover {
+            transform: translateY(-5px);
+            background: rgba(44, 37, 37, 1);
+        }
+
+        .clue-card-inner {
+            text-align: center;
+        }
+
+        .clue-card-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 0.8rem;
+        }
+
+        .clue-card-name {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #e6c300;
+            margin-bottom: 0.5rem;
+        }
+
+        .clue-card-desc {
+            font-size: 0.85rem;
+            color: #cccccc;
+            line-height: 1.5;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, margin 0.3s ease;
+            margin-top: 0;
+        }
+
+        .clue-card-desc.show {
+            max-height: 200px;
+            margin-top: 0.8rem;
+        }
+
+        /* 操作圖片區塊 */
+        .controls-image-section {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .controls-image-title {
+            font-size: 1.8rem;
+            color: #e6c300;
+            margin-bottom: 2rem;
+            border-left: 4px solid #df3c33;
+            padding-left: 1rem;
+        }
+
+        .controls-image {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
                 gap: 1rem;
             }
-            .clue-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .clue-icon {
-                margin-bottom: 0.5rem;
-            }
-            .controls-wrapper {
-                flex-direction: column;
-                align-items: center;
+            .clue-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
             .ending-dual {
                 flex-direction: column;
@@ -314,9 +288,16 @@
                 margin-left: auto;
             }
         }
+
+        @media (max-width: 480px) {
+            .clue-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
+
     <!-- 導覽列 -->
 <div class="navbar">
     <div class="logo">山 Mountain</div>
@@ -333,103 +314,182 @@
     <div class="container">
         <h2 class="page-title">玩法說明 <span class="en-title">Gameplay</span></h2>
 
-        <!-- 線索收集 - 瀑布式 -->
-        <div class="clue-section">
-            <h3 class="clue-title">線索收集 <span class="en-title">Clue Collection</span></h3>
-            
-            <div class="clue-item">
-                <div class="clue-icon">🔍</div>
-                <div class="clue-content">
-                    <div class="clue-text">
-                        在鎖羅盆村、新娘潭、猛鬼橋等場景中，隱藏著亡魂們遺失的物品。收集這些線索，不僅能拼湊出意外的真相，更能幫助亡魂解脫。
-                    </div>
-                    <div class="clue-text-en">
-                        Hidden across locations like So Lo Pun Village, Bride's Pool, and Unfortunate Bridge are the lost belongings of lingering spirits. Collecting these clues not only helps piece together the truth but also allows the spirits to find peace.
-                    </div>
-                </div>
-            </div>
-
-            <div class="clue-item">
-                <div class="clue-icon">📖</div>
-                <div class="clue-content">
-                    <div class="clue-text">
-                        每一件遺物都承載著一段未完成的故事。找到它們，歸還給正確的人，你將改變他們的命運。
-                    </div>
-                    <div class="clue-text-en">
-                        Each lost item carries an unfinished story. Find them, return them to the right person, and you may change their fate.
-                    </div>
-                </div>
-            </div>
-
-            <div class="clue-item">
-                <div class="clue-icon">✨</div>
-                <div class="clue-content">
-                    <div class="clue-text">
-                        梳子、繡花鞋、首飾盒、口琴、書包、圍巾⋯⋯每一件遺物，都是解開謎團的關鍵。
-                    </div>
-                    <div class="clue-text-en">
-                        Combs, embroidered shoes, jewelry boxes, harmonicas, schoolbags, scarves... each lost item is the key to unraveling the mystery.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 操作方式 - 單區域 -->
-        <div class="controls-section">
-            <h3 class="controls-title">操作方式 <span class="en-title">Controls</span></h3>
-            <div class="controls-wrapper">
-                <div class="control-item">
-                    <div class="control-key">WASD / 方向鍵</div>
-                    <div class="control-desc">移動 / Move</div>
-                </div>
-                <div class="control-item">
-                    <div class="control-key">滑鼠點擊</div>
-                    <div class="control-desc">對話 / 互動 / Interact</div>
-                </div>
-                <div class="control-item">
-                    <div class="control-key">空格 / Space</div>
-                    <div class="control-desc">跳躍 / Jump</div>
-                </div>
-            </div>
-            <div class="controls-en">
-                Use WASD or arrow keys to move, click to interact with characters and objects, and press the space bar to jump.
-            </div>
-        </div>
-
-        <!-- 新娘潭結局區塊 -->
-        <div class="bridal-pool-section">
-            <h3 class="bridal-title">新娘潭結局 <span class="en-title">Bride's Pool Endings</span></h3>
-            <p class="bridal-intro">
+        <!-- ===== 1. 新娘潭多重結局 ===== -->
+        <div class="ending-section">
+            <h3 class="ending-title">新娘潭結局 <span class="en-title">Bride's Pool Endings</span></h3>
+            <p class="ending-intro">
                 在新娘潭，玩家將會遇到哭泣的新娘阿鳳。途中會發現她的遺物——梳子、繡花鞋、首飾盒。玩家的選擇：是否撿起？是否歸還？將導向截然不同的命運。
             </p >
-            <p class="bridal-intro-en">
+            <p class="ending-intro-en">
                 At Bride's Pool, players will encounter the weeping bride A Feng. Along the way, they will discover her lost belongings — a comb, embroidered shoes, and a jewelry box. The player's choices — whether to pick them up and whether to return them — will lead to completely different fates.
             </p >
 
             <div class="ending-dual">
                 <div class="ending-image">
-                    < img id="endingImg" src="images/bride_good.jpg" alt="新娘潭結局">
+                    < img id="brideImg" src="images/bride_good.jpg" alt="新娘潭結局">
                 </div>
                 <div class="ending-content">
-                    <div class="ending-text" id="endingText">
+                    <div class="ending-text" id="brideText">
                         <strong>好結局：歸還遺物</strong><br>
                         如果玩家撿起部分或全部遺物，並歸還給新娘阿鳳，她將與等待已久的新郎重逢。主角會獲得新娘的頭紗（祝福道具），阿鳳與新郎走向光芒，水面泛起溫柔的波光。
                     </div>
-                    <div class="ending-text-en" id="endingTextEn">
+                    <div class="ending-text-en" id="brideTextEn">
                         <strong>Good Ending: Return the Belongings</strong><br>
                         If the player picks up some or all of the lost items and returns them to the bride A Feng, she will reunite with her long-waiting groom. The protagonist receives the bride's veil (a blessed item), as A Feng and her groom walk into the light, gentle ripples spreading across the water.
                     </div>
-                    <div class="arrow-btn" id="nextBtn">→</div>
+                    <div class="arrow-btn" id="brideNextBtn">→</div>
                 </div>
             </div>
+        </div>
+
+        <!-- ===== 2. 猛鬼橋多重結局 ===== -->
+        <div class="ending-section">
+            <h3 class="ending-title">猛鬼橋結局 <span class="en-title">Unfortunate Bridge Endings</span></h3>
+            <p class="ending-intro">
+                在猛鬼橋，玩家將會遇到一九五五年巴士墜橋意外中罹難的亡魂。途中會發現三件遺物——阿明的口琴、王小玲的書包、母親的圍巾。玩家的選擇：是否撿起？是否歸還？將導向截然不同的命運。
+            </p >
+            <p class="ending-intro-en">
+                At Unfortunate Bridge, players will encounter the spirits of the 1955 bus crash. Along the way, they will discover three lost items — A Ming's harmonica, Wang Xiaoling's schoolbag, and her mother's scarf. The player's choices — whether to pick them up and whether to return them — will lead to completely different fates.
+            </p >
+
+            <div class="ending-dual">
+                <div class="ending-image">
+                    < img id="bridgeImg" src="images/bridge_good.jpg" alt="猛鬼橋結局">
+                </div>
+                <div class="ending-content">
+                    <div class="ending-text" id="bridgeText">
+                        <strong>好結局：歸還遺物</strong><br>
+                        如果玩家撿起遺物並歸還，阿明重新吹起《月光光》，王小玲與母親重逢，三十二位亡魂一起走向光芒。主角獲得發光的車票和一小截藍色毛線。
+                    </div>
+                    <div class="ending-text-en" id="bridgeTextEn">
+                        <strong>Good Ending: Return the Belongings</strong><br>
+                        If the player picks up and returns the lost items, A Ming plays "Moonlight" again, Wang Xiaoling reunites with her mother, and all 32 spirits walk into the light together. The protagonist receives a glowing ticket and a small piece of blue yarn.
+                    </div>
+                    <div class="arrow-btn" id="bridgeNextBtn">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 3. 線索收集（九宮格點擊展開） ===== -->
+        <div class="clue-section">
+            <h3 class="clue-title">線索收集 <span class="en-title">Clue Collection</span></h3>
+            
+            <div class="clue-grid">
+                
+                <!-- 1. 梳子 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_comb.jpg" alt="梳子">
+                        <div class="clue-card-name">梳子</div>
+                        <div class="clue-card-desc">
+                            新娘阿鳳的梳子。母親在她出嫁前為她梳頭：「一梳梳到尾，二梳白髮齊眉，三梳子孫滿堂。」
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 繡花鞋 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_shoe.jpg" alt="繡花鞋">
+                        <div class="clue-card-name">繡花鞋</div>
+                        <div class="clue-card-desc">
+                            新娘阿鳳的繡花鞋。她親手繡了三個月，穿上腳的時候很開心，落水時從腳上脫落。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 首飾盒 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_box.jpg" alt="首飾盒">
+                        <div class="clue-card-name">首飾盒</div>
+                        <div class="clue-card-desc">
+                            新娘阿鳳的首飾盒。裡面本來有一隻玉鐲，是丈夫承諾過門之後親手為她戴上的信物。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 口琴 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_harmonica.jpg" alt="口琴">
+                        <div class="clue-card-name">口琴</div>
+                        <div class="clue-card-desc">
+                            阿明的口琴。七歲的他準備吹《月光光》給外婆聽，巴士墜橋時口琴從手中飛出。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 書包 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_bag.jpg" alt="書包">
+                        <div class="clue-card-name">書包</div>
+                        <div class="clue-card-desc">
+                            王小玲的書包。裡面裝著作業本和一隻毛絨玩具，作業本最後一頁寫著：「我好開心。」
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. 圍巾 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_scarf.jpg" alt="圍巾">
+                        <div class="clue-card-name">圍巾</div>
+                        <div class="clue-card-desc">
+                            王小玲母親的圍巾。她怕女兒著涼，用圍巾蓋在女兒身上，風吹走圍巾，她伸手抓不到。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. 新娘的頭紗 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_veil.jpg" alt="新娘的頭紗">
+                        <div class="clue-card-name">新娘的頭紗</div>
+                        <div class="clue-card-desc">
+                            阿鳳留下的祝福。歸還遺物後，水流將頭紗推到岸邊，阿替說：「這是她的祝福，收下吧。」
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. 發光的車票 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_ticket.jpg" alt="發光的車票">
+                        <div class="clue-card-name">發光的車票</div>
+                        <div class="clue-card-desc">
+                            猛鬼橋亡魂留下的祝福。歸還遺物後，主角手中多了一片發光的車票，象徵他們終於可以離開。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. 一小截藍色毛線 -->
+                <div class="clue-card">
+                    <div class="clue-card-inner">
+                        < img class="clue-card-img" src="images/clue_yarn.jpg" alt="一小截藍色毛線">
+                        <div class="clue-card-name">一小截藍色毛線</div>
+                        <div class="clue-card-desc">
+                            王小玲母親圍巾上的一小截毛線。她和小玲一起走向光芒時，留下了這份溫暖的記憶。
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== 4. 操作方式（圖片） ===== -->
+        <div class="controls-image-section">
+            <h3 class="controls-image-title">操作方式 <span class="en-title">Controls</span></h3>
+            < img class="controls-image" src="images/controls.jpg" alt="操作方式">
         </div>
 
     </div>
 </div>
 
 <script>
-    // 新娘潭結局切換
-    const endings = [
+    // ===== 新娘潭結局切換 =====
+    const brideEndings = [
         {
             img: "images/bride_good.jpg",
             text: "<strong>好結局：歸還遺物</strong><br>如果玩家撿起部分或全部遺物，並歸還給新娘阿鳳，她將與等待已久的新郎重逢。主角會獲得新娘的頭紗（祝福道具），阿鳳與新郎走向光芒，水面泛起溫柔的波光。",
@@ -447,26 +507,77 @@
         }
     ];
 
-    let endingIndex = 0;
+    // ===== 猛鬼橋結局切換 =====
+    const bridgeEndings = [
+        {
+            img: "images/bridge_good.jpg",
+            text: "<strong>好結局：歸還遺物</strong><br>如果玩家撿起遺物並歸還，阿明重新吹起《月光光》，王小玲與母親重逢，三十二位亡魂一起走向光芒。主角獲得發光的車票和一小截藍色毛線。",
+            textEn: "<strong>Good Ending: Return the Belongings</strong><br>If the player picks up and returns the lost items, A Ming plays 'Moonlight' again, Wang Xiaoling reunites with her mother, and all 32 spirits walk into the light together. The protagonist receives a glowing ticket and a small piece of blue yarn."
+        },
+        {
+            img: "images/bridge_bad.jpg",
+            text: "<strong>壞結局：永遠被困</strong><br>如果玩家企圖佔有遺物，亡魂們會憤怒地將主角困在猛鬼橋下，永遠無法離開，成為第33個亡魂。",
+            textEn: "<strong>Bad Ending: Trapped Forever</strong><br>If the player tries to keep the belongings, the spirits will angrily trap the protagonist beneath Unfortunate Bridge, never to leave, becoming the 33rd spirit."
+        },
+        {
+            img: "images/bridge_neutral.jpg",
+            text: "<strong>中立路線：答應幫忙</strong><br>如果玩家沒有拿任何遺物，亡魂們會哀傷地請求主角幫忙。主角答應後，取回遺物歸還，最終走向好結局。",
+            textEn: "<strong>Neutral Path: Promise to Help</strong><br>If the player takes nothing at all, the spirits sorrowfully beg the protagonist for help. The protagonist agrees, retrieves the items, returns them, and ultimately reaches the good ending."
+        }
+    ];
 
-    const endingImg = document.getElementById('endingImg');
-    const endingText = document.getElementById('endingText');
-    const endingTextEn = document.getElementById('endingTextEn');
-    const nextBtn = document.getElementById('nextBtn');
+    let brideIndex = 0;
+    let bridgeIndex = 0;
 
-    function updateEnding(index) {
-        const e = endings[index % endings.length];
-        endingImg.src = e.img;
-        endingText.innerHTML = e.text;
-        endingTextEn.innerHTML = e.textEn;
+    const brideImg = document.getElementById('brideImg');
+    const brideText = document.getElementById('brideText');
+    const brideTextEn = document.getElementById('brideTextEn');
+    const brideNextBtn = document.getElementById('brideNextBtn');
+
+    const bridgeImg = document.getElementById('bridgeImg');
+    const bridgeText = document.getElementById('bridgeText');
+    const bridgeTextEn = document.getElementById('bridgeTextEn');
+    const bridgeNextBtn = document.getElementById('bridgeNextBtn');
+
+    function updateBride(index) {
+        const e = brideEndings[index % brideEndings.length];
+        brideImg.src = e.img;
+        brideText.innerHTML = e.text;
+        brideTextEn.innerHTML = e.textEn;
     }
 
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            endingIndex++;
-            updateEnding(endingIndex);
+    function updateBridge(index) {
+        const e = bridgeEndings[index % bridgeEndings.length];
+        bridgeImg.src = e.img;
+        bridgeText.innerHTML = e.text;
+        bridgeTextEn.innerHTML = e.textEn;
+    }
+
+    if (brideNextBtn) {
+        brideNextBtn.addEventListener('click', () => {
+            brideIndex++;
+            updateBride(brideIndex);
         });
     }
+
+    if (bridgeNextBtn) {
+        bridgeNextBtn.addEventListener('click', () => {
+            bridgeIndex++;
+            updateBridge(bridgeIndex);
+        });
+    }
+
+    // ===== 線索收集點擊展開/收起 =====
+    const clueCards = document.querySelectorAll('.clue-card');
+    
+    clueCards.forEach(card => {
+        const desc = card.querySelector('.clue-card-desc');
+        
+        card.addEventListener('click', (e) => {
+            e.stopPropagation();
+            desc.classList.toggle('show');
+        });
+    });
 </script>
 
 </body>
