@@ -126,47 +126,66 @@
             margin: 0 auto;
         }
 
-        .scene-bg {
-            width: 100%;
-            display: block;
-            border-radius: 24px;
-            pointer-events: none;
+                .chibi-name {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #e6c300;
+            opacity: 0;
+            transition: opacity 0.2s;
         }
+
+        .chibi-card:hover .chibi-name {
+            opacity: 1;
+        }
+        
+        .chibi-scene {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+.scene-bg {
+    width: 100%;
+    display: block;
+    border-radius: 24px;
+    pointer-events: none;
+}
 
 .character-hotspot {
     position: absolute;
     cursor: pointer;
-    transform: translateX(-50%);
+    transition: transform 0.2s ease;
+    width: 12%;
     text-align: center;
 }
 
 .character-hotspot:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
     z-index: 10;
 }
 
 .hotspot-img {
-    width: 180px;           /* 固定圖片寬度，不要用 % */
+    width: 100%;
     display: block;
     pointer-events: none;
-    transition: transform 0.2s ease;
 }
 
 .hotspot-name {
-    margin-top: 8px;
-    font-size: 0.9rem;
+    margin-top: 6px;
+    font-size: 0.8rem;
     font-weight: bold;
     color: #e6c300;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.6);
     display: inline-block;
-    padding: 4px 12px;
-    border-radius: 30px;
-    opacity: 0;              /* 預設隱藏 */
+    padding: 2px 8px;
+    border-radius: 20px;
+    opacity: 0;
     transition: opacity 0.2s;
     white-space: nowrap;
 }
 
-/* 只有懸停時才顯示名字 */
 .character-hotspot:hover .hotspot-name {
     opacity: 1;
 }
