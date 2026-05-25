@@ -55,8 +55,7 @@
         .nav-links a:hover {
             color: #df3c33;
         }
-
-        /* 容器 */
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -124,10 +123,16 @@
 
         /* 單個結局卡片（左圖右文） */
         
-        .ending-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        .ending-card {
+            display: flex;
+            gap: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+        
+        
 
         .ending-card-img {
             flex: 1;
@@ -182,6 +187,11 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
+        }
+        
+        .clue-card: hover{
+            transform: translateY(-5);
+            background: rgba(44, 37, 37, 1);
         }
 
         .clue-card {
