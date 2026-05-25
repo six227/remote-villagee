@@ -123,15 +123,7 @@
         }
 
         /* 單個結局卡片（左圖右文） */
-        .ending-card {
-            display: flex;
-            gap: 2rem;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 20px;
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
+        
         .ending-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
@@ -139,7 +131,7 @@
 
         .ending-card-img {
             flex: 1;
-            min-width: 200px;
+            min-width: 250px;
             border-radius: 16px;
             overflow: hidden;
         }
@@ -156,7 +148,7 @@
         }
 
         .ending-card-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #e6c300;
             margin-bottom: 0.8rem;
         }
@@ -165,11 +157,12 @@
             color: #cccccc;
             line-height: 1.6;
             margin-bottom: 0.8rem;
+            font-size: 1rem;
         }
 
         .ending-card-text-en {
             color: #aaa;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             line-height: 1.5;
         }
 
@@ -287,10 +280,10 @@
 <div class="navbar">
     <div class="logo">山 Mountain</div>
     <div class="nav-links">
-        <a href=" ">HOME</a >
+        <a href="index.html">HOME</a >
         <a href="Background.html">BACKGROUND</a >
-        <a href="characters.html">CHARACTERS</a >
-        <a href="gameplay.html">GAMEPLAY</a >
+        <a href="Characters.html">CHARACTERS</a >
+        <a href="#">GAMEPLAY</a >
     </div>
 </div>
 
@@ -407,25 +400,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- 中立路線 -->
-                <div class="ending-card">
-                    <div class="ending-card-img">
-                        < img src="images/bridge_neutral.jpg" alt="中立路線">
-                    </div>
-                    <div class="ending-card-content">
-                        <div class="ending-card-title">中立路線：答應幫忙</div>
-                        <div class="ending-card-text">
-                            如果玩家沒有拿任何遺物，亡魂們會哀傷地請求主角幫忙。主角答應後，取回遺物歸還，最終走向好結局。
-                        </div>
-                        <div class="ending-card-text-en">
-                            <strong>Neutral Path: Promise to Help</strong><br>
-                            If the player takes nothing at all, the spirits sorrowfully beg the protagonist for help. The protagonist agrees, retrieves the items, returns them, and ultimately reaches the good ending.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- ===== 3. 線索收集（九宮格點擊展開） ===== -->
         <div class="clue-section">
