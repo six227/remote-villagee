@@ -83,80 +83,89 @@
             font-weight: normal;
         }
 
-        /* 雙欄布局 */
-        .gameplay-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
+        /* 線索收集 - 瀑布式 */
+        .clue-section {
+            margin-bottom: 4rem;
         }
 
-        .gameplay-row {
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .gameplay-card {
-            flex: 1;
-            min-width: 280px;
-            background: rgba(44, 37, 37, 0.8);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .gameplay-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .gameplay-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .gameplay-card-title {
+        .clue-title {
             font-size: 1.8rem;
             color: #e6c300;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             border-left: 4px solid #df3c33;
             padding-left: 1rem;
         }
 
-        .gameplay-text {
-            color: #cccccc;
-            line-height: 1.8;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .gameplay-text-en {
-            color: #aaa;
-            line-height: 1.8;
-            font-size: 0.9rem;
-            padding-top: 1rem;
-            border-top: 1px solid #3a3a3a;
-        }
-
-        /* 操作方式特殊樣式（雙欄內再加雙欄） */
-        .controls-grid {
+        .clue-item {
             display: flex;
             gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(44, 37, 37, 0.5);
+            border-radius: 16px;
+            transition: 0.3s;
         }
 
-        .control-item {
+        .clue-item:hover {
+            background: rgba(44, 37, 37, 0.8);
+            transform: translateX(5px);
+        }
+
+        .clue-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .clue-content {
             flex: 1;
+        }
+
+        .clue-text {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .clue-text-en {
+            color: #aaa;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* 操作方式 - 單區域 */
+        .controls-section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: rgba(44, 37, 37, 0.6);
+            border-radius: 20px;
+        }
+
+        .controls-title {
+            font-size: 1.8rem;
+            color: #e6c300;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .controls-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .controls-wrapper .control-item {
+            flex: 0 1 auto;
             min-width: 120px;
             text-align: center;
-            background: rgba(0,0,0,0.3);
+            background: rgba(0, 0, 0, 0.3);
             padding: 1rem;
             border-radius: 12px;
         }
 
-        .control-key {
-            font-size: 1.5rem;
+        .controls-wrapper .control-key {
+            font-size: 1.2rem;
             font-weight: bold;
             color: #df3c33;
             background: #2c2525;
@@ -166,53 +175,149 @@
             margin-bottom: 0.5rem;
         }
 
-        .control-desc {
+        .controls-wrapper .control-desc {
             font-size: 0.85rem;
             color: #ccc;
         }
 
-        /* 頁尾 */
-        .footer {
-            background-color: #8b3a3a;
-            color: white;
-            padding: 2rem;
+        .controls-en {
+            color: #aaa;
+            font-size: 0.9rem;
             text-align: center;
-            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #3a3a3a;
         }
 
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+        /* 新娘潭結局區塊 */
+        .bridal-pool-section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: rgba(44, 37, 37, 0.6);
+            border-radius: 24px;
+        }
+
+        .bridal-title {
+            font-size: 1.8rem;
+            color: #e6c300;
+            text-align: center;
             margin-bottom: 1rem;
         }
 
-        .footer-link {
+        .bridal-intro {
+            color: #cccccc;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 0.5rem;
+        }
+
+        .bridal-intro-en {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .ending-dual {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .ending-image {
+            flex: 1;
+            min-width: 250px;
+            background: #2a2a2a;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .ending-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .ending-content {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .ending-text {
+            color: #ffffff;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .ending-text-en {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .arrow-btn {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background-color: #df3c33;
             color: white;
-            text-decoration: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
             font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
-        .footer-link:hover {
-            color: #e6c300;
+        .arrow-btn:hover {
+            background-color: #e6c300;
+            transform: scale(1.05);
         }
 
-        /* 手機版調整 */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
                 gap: 1rem;
             }
-            .gameplay-row {
+            .clue-item {
                 flex-direction: column;
+                text-align: center;
+            }
+            .clue-icon {
+                margin-bottom: 0.5rem;
+            }
+            .controls-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            .ending-dual {
+                flex-direction: column;
+            }
+            .arrow-btn {
+                position: static;
+                margin-top: 1rem;
+                margin-left: auto;
             }
         }
     </style>
 </head>
 <body>
-
-<!-- 導覽列 -->
+    <!-- 導覽列 -->
 <div class="navbar">
     <div class="logo">山 Mountain</div>
     <div class="nav-links">
@@ -228,76 +333,141 @@
     <div class="container">
         <h2 class="page-title">玩法說明 <span class="en-title">Gameplay</span></h2>
 
-        <div class="gameplay-grid">
+        <!-- 線索收集 - 瀑布式 -->
+        <div class="clue-section">
+            <h3 class="clue-title">線索收集 <span class="en-title">Clue Collection</span></h3>
             
-            <!-- 第一行：多重結局 + 線索收集 -->
-            <div class="gameplay-row">
-                <!-- 多重結局 -->
-                <div class="gameplay-card">
-                    <div class="gameplay-icon">🎭</div>
-                    <h3 class="gameplay-card-title">多重結局 <span style="font-size: 0.9rem; color: #888;">Multiple Endings</span></h3>
-                    <div class="gameplay-text">
-                        在遊戲中，你的每一個關鍵選擇都會導向不同的命運。歸還遺物，亡魂得以解脫，你也將獲得祝福；若選擇佔為己有，則可能永遠被困在迷霧之中。
-                    </div>
-                    <div class="gameplay-text-en">
-                        Every critical choice you make leads to a different fate. Return the lost items, and the spirits will find peace, blessing you in return. But if you choose to keep them for yourself, you may become trapped in the mist forever.
-                    </div>
-                </div>
-
-                <!-- 線索收集 -->
-                <div class="gameplay-card">
-                    <div class="gameplay-icon">🔍</div>
-                    <h3 class="gameplay-card-title">線索收集 <span style="font-size: 0.9rem; color: #888;">Clue Collection</span></h3>
-                    <div class="gameplay-text">
+            <div class="clue-item">
+                <div class="clue-icon">🔍</div>
+                <div class="clue-content">
+                    <div class="clue-text">
                         在鎖羅盆村、新娘潭、猛鬼橋等場景中，隱藏著亡魂們遺失的物品。收集這些線索，不僅能拼湊出意外的真相，更能幫助亡魂解脫。
                     </div>
-                    <div class="gameplay-text-en">
+                    <div class="clue-text-en">
                         Hidden across locations like So Lo Pun Village, Bride's Pool, and Unfortunate Bridge are the lost belongings of lingering spirits. Collecting these clues not only helps piece together the truth but also allows the spirits to find peace.
                     </div>
                 </div>
             </div>
 
-            <!-- 第二行：操作方式（置中） -->
-            <div class="gameplay-row">
-                <div class="gameplay-card">
-                    <div class="gameplay-icon">🖱️</div>
-                    <h3 class="gameplay-card-title">操作方式 <span style="font-size: 0.9rem; color: #888;">Controls</span></h3>
-                    
-                    <div class="controls-grid">
-                        <div class="control-item">
-                            <div class="control-key">WASD / 方向鍵</div>
-                            <div class="control-desc">移動 / Move</div>
-                        </div>
-                        <div class="control-item">
-                            <div class="control-key">滑鼠點擊</div>
-                            <div class="control-desc">互動 / Interact</div>
-                        </div>
-                        <div class="control-item">
-                            <div class="control-key">空格 / Space</div>
-                            <div class="control-desc">跳躍 / Jump</div>
-                        </div>
+            <div class="clue-item">
+                <div class="clue-icon">📖</div>
+                <div class="clue-content">
+                    <div class="clue-text">
+                        每一件遺物都承載著一段未完成的故事。找到它們，歸還給正確的人，你將改變他們的命運。
                     </div>
-
-                    <div class="gameplay-text-en" style="margin-top: 1rem; border-top: 1px solid #3a3a3a; padding-top: 1rem;">
-                        Use WASD or arrow keys to move, click to interact with objects and characters, and press the space bar to jump across obstacles.
+                    <div class="clue-text-en">
+                        Each lost item carries an unfinished story. Find them, return them to the right person, and you may change their fate.
                     </div>
                 </div>
             </div>
 
+            <div class="clue-item">
+                <div class="clue-icon">✨</div>
+                <div class="clue-content">
+                    <div class="clue-text">
+                        梳子、繡花鞋、首飾盒、口琴、書包、圍巾⋯⋯每一件遺物，都是解開謎團的關鍵。
+                    </div>
+                    <div class="clue-text-en">
+                        Combs, embroidered shoes, jewelry boxes, harmonicas, schoolbags, scarves... each lost item is the key to unraveling the mystery.
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- 操作方式 - 單區域 -->
+        <div class="controls-section">
+            <h3 class="controls-title">操作方式 <span class="en-title">Controls</span></h3>
+            <div class="controls-wrapper">
+                <div class="control-item">
+                    <div class="control-key">WASD / 方向鍵</div>
+                    <div class="control-desc">移動 / Move</div>
+                </div>
+                <div class="control-item">
+                    <div class="control-key">滑鼠點擊</div>
+                    <div class="control-desc">對話 / 互動 / Interact</div>
+                </div>
+                <div class="control-item">
+                    <div class="control-key">空格 / Space</div>
+                    <div class="control-desc">跳躍 / Jump</div>
+                </div>
+            </div>
+            <div class="controls-en">
+                Use WASD or arrow keys to move, click to interact with characters and objects, and press the space bar to jump.
+            </div>
+        </div>
+
+        <!-- 新娘潭結局區塊 -->
+        <div class="bridal-pool-section">
+            <h3 class="bridal-title">新娘潭結局 <span class="en-title">Bride's Pool Endings</span></h3>
+            <p class="bridal-intro">
+                在新娘潭，玩家將會遇到哭泣的新娘阿鳳。途中會發現她的遺物——梳子、繡花鞋、首飾盒。玩家的選擇：是否撿起？是否歸還？將導向截然不同的命運。
+            </p >
+            <p class="bridal-intro-en">
+                At Bride's Pool, players will encounter the weeping bride A Feng. Along the way, they will discover her lost belongings — a comb, embroidered shoes, and a jewelry box. The player's choices — whether to pick them up and whether to return them — will lead to completely different fates.
+            </p >
+
+            <div class="ending-dual">
+                <div class="ending-image">
+                    < img id="endingImg" src="images/bride_good.jpg" alt="新娘潭結局">
+                </div>
+                <div class="ending-content">
+                    <div class="ending-text" id="endingText">
+                        <strong>好結局：歸還遺物</strong><br>
+                        如果玩家撿起部分或全部遺物，並歸還給新娘阿鳳，她將與等待已久的新郎重逢。主角會獲得新娘的頭紗（祝福道具），阿鳳與新郎走向光芒，水面泛起溫柔的波光。
+                    </div>
+                    <div class="ending-text-en" id="endingTextEn">
+                        <strong>Good Ending: Return the Belongings</strong><br>
+                        If the player picks up some or all of the lost items and returns them to the bride A Feng, she will reunite with her long-waiting groom. The protagonist receives the bride's veil (a blessed item), as A Feng and her groom walk into the light, gentle ripples spreading across the water.
+                    </div>
+                    <div class="arrow-btn" id="nextBtn">→</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<!-- 頁尾 -->
-<footer class="footer">
-    <div class="footer-links">
-        <a href="#" class="footer-link"><i class="fas fa-envelope"></i> 聯繫我們</a >
-        <a href="#" class="footer-link"><i class="fab fa-youtube"></i> YouTube</a >
-        <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a >
-        <a href="#" class="footer-link"><i class="fab fa-bilibili"></i> Bilibili</a >
-    </div>
-    <div>© 2025 《山 Mountain》 All Rights Reserved.</div>
-</footer>
+<script>
+    // 新娘潭結局切換
+    const endings = [
+        {
+            img: "images/bride_good.jpg",
+            text: "<strong>好結局：歸還遺物</strong><br>如果玩家撿起部分或全部遺物，並歸還給新娘阿鳳，她將與等待已久的新郎重逢。主角會獲得新娘的頭紗（祝福道具），阿鳳與新郎走向光芒，水面泛起溫柔的波光。",
+            textEn: "<strong>Good Ending: Return the Belongings</strong><br>If the player picks up some or all of the lost items and returns them to the bride A Feng, she will reunite with her long-waiting groom. The protagonist receives the bride's veil (a blessed item), as A Feng and her groom walk into the light, gentle ripples spreading across the water."
+        },
+        {
+            img: "images/bride_bad.jpg",
+            text: "<strong>壞結局：新娘的邀請</strong><br>如果玩家企圖佔有遺物，說謊說沒有拿到，阿鳳會憤怒地將主角拖入潭底。無數蒼白的手抓住主角，永遠被困在新娘潭，解鎖「新娘的邀請」結局。",
+            textEn: "<strong>Bad Ending: The Bride's Invitation</strong><br>If the player tries to keep the belongings and lies about not having them, A Feng will angrily drag the protagonist into the pool. Countless pale hands grab the protagonist, trapping them forever beneath Bride's Pool, unlocking the 'Bride's Invitation' ending."
+        },
+        {
+            img: "images/bride_neutral.jpg",
+            text: "<strong>中立路線：苦苦哀求</strong><br>如果玩家一樣東西都沒有拿，阿鳳不會生氣，只是哀傷地請求主角幫忙去拿遺物。主角答應後，去取回梳子、繡花鞋和首飾盒，後續可走向好結局。",
+            textEn: "<strong>Neutral Path: A Pleading Cry</strong><br>If the player takes nothing at all, A Feng does not get angry. Instead, she sorrowfully begs the protagonist to help retrieve her lost belongings. The protagonist agrees, retrieves the comb, embroidered shoes, and jewelry box, and can still reach the good ending."
+        }
+    ];
+
+    let endingIndex = 0;
+
+    const endingImg = document.getElementById('endingImg');
+    const endingText = document.getElementById('endingText');
+    const endingTextEn = document.getElementById('endingTextEn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function updateEnding(index) {
+        const e = endings[index % endings.length];
+        endingImg.src = e.img;
+        endingText.innerHTML = e.text;
+        endingTextEn.innerHTML = e.textEn;
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            endingIndex++;
+            updateEnding(endingIndex);
+        });
+    }
+</script>
 
 </body>
 </html>
