@@ -135,145 +135,146 @@
                 border-radius: 16px;
                 overflow: hidden;
             }
-
-        .ending-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .ending-card-content {
-            flex: 2;
-        }
-
-        .ending-card-title {
-            font-size: 1.5rem;
-            color: #e6c300;
-            margin-bottom: 0.8rem;
-        }
-
-        .ending-card-text {
-            color: #cccccc;
-            line-height: 1.6;
-            margin-bottom: 0.8rem;
-        }
-
-        .ending-card-text-en {
-            color: #aaa;
-            font-size: 0.85rem;
-            line-height: 1.5;
-        }
-
-        /* 線索收集 - 九宮格 */
-        .clue-section {
-            margin-bottom: 4rem;
-        }
-
-        .clue-title {
-            font-size: 1.8rem;
-            color: #e6c300;
-            margin-bottom: 2rem;
-            border-left: 4px solid #df3c33;
-            padding-left: 1rem;
-        }
-
-        .clue-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        
-        .clue-card: hover{
-            transform: translateY(-5);
-            background: rgba(44, 37, 37, 1);
-        }
-
-        .clue-card {
-            background: white;
-            border-radius: 16px;
-            padding: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .clue-card-inner {
-            text-align: center;
-        }
-
-        .clue-card-img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 0.8rem;
-        }
-
-        .clue-card-name {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #df3c33;
-            margin-bottom: 0.5rem;
-        }
-
-        .clue-card-desc {
-            font-size: 0.85rem;
-            color: #333333;
-            line-height: 1.5;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, margin 0.3s ease;
-            margin-top: 0;
-        }
-
-        .clue-card-desc.show {
-            max-height: 200px;
-            margin-top: 0.8rem;
-        }
-
-        /* 操作圖片區塊 */
-        .controls-image-section {
-            margin-bottom: 4rem;
-            text-align: center;
-        }
-
-        .controls-image-title {
-            font-size: 1.8rem;
-            color: #e6c300;
-            margin-bottom: 2rem;
-            border-left: 4px solid #df3c33;
-            padding-left: 1rem;
-        }
-
-        .controls-image {
-            max-width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 1rem;
+            
+            .ending-card-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
             }
-            .ending-card {
-                flex-direction: column;
+            
+            .ending-card-content {
+                flex: 2;
+            }
+            
+            .ending-card-title {
+                font-size: 1.5rem;
+                color: #e6c300;
+                margin-bottom: 0.8rem;
+            }
+            
+            .ending-card-text {
+                color: #cccccc;
+                line-height: 1.6;
+                margin-bottom: 0.8rem;
+            }
+            
+            .ending-card-text-en {
+                color: #aaa;
+                font-size: 0.85rem;
+                line-height: 1.5;
+            }
+            
+            /* 線索收集 - 九宮格 */
+            .clue-section {
+                margin-bottom: 4rem;
+            }
+            
+            .clue-title {
+                font-size: 1.8rem;color: #e6c300;
+                margin-bottom: 2rem;
+                border-left: 4px solid #df3c33;
+                padding-left: 1rem;
+            }
+            
+            .clue-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .clue-card: hover{
+                transform: translateY(-5);
+                background: rgba(44, 37, 37, 1);
+            }
+            
+            .clue-card {
+                background: white;
+                border-radius: 16px;
+                padding: 1rem;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .clue-card-inner {
                 text-align: center;
             }
-            .clue-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            
+            .clue-card-img {
+                width: 100%;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                border-radius: 12px;
+                margin-bottom: 0.8rem;
             }
-        }
-
-        @media (max-width: 480px) {
-            .clue-grid {
-                grid-template-columns: 1fr;
+            
+            .clue-card-name {
+                font-size: 1rem;
+                font-weight: bold;
+                color: #df3c33;
+                margin-bottom: 0.5rem;
             }
-        }
-    </style>
-</head>
-<body>
+            
+            .clue-card-desc {
+                font-size: 0.85rem;
+                color: #333333;
+                line-height: 1.5;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease, margin 0.3s ease;
+                margin-top: 0;
+            }
+            
+            .clue-card-desc.show {
+                max-height: 200px;
+                margin-top: 0.8rem;
+            }
+            
+            /* 操作圖片區塊 */
+            .controls-image-section {
+                margin-bottom: 4rem;
+                text-align: center;
+            }
+            
+            .controls-image-title {
+                font-size: 1.8rem;
+                color: #e6c300;
+                margin-bottom: 2rem;
+                border-left: 4px solid #df3c33;
+                padding-left: 1rem;
+            }
+            
+            .controls-image {
+                max-width: 100%;
+                border-radius: 16px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            }
+            
+            @media (max-width: 768px) {
+                .navbar {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+                
+                .ending-card {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                
+                .clue-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 1rem;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .clue-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
 
 <!-- 導覽列 -->
 <div class="navbar">
