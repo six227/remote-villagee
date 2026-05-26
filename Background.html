@@ -218,14 +218,19 @@
             }
         }
 
-        /* 區域三：三圖片 */
+        /* 區域三：3D poster */
+
+        .poster-section{
+            margin: 5rem 0;
+            text-align: center;
+        }
         
         .shell{
-            posistion: relative:
+            position: relative:
             width: 60vw;
             height: 40vw;
             max-width: 250px;
-            margin: 0;
+            margin: 0 auto;
             color: white;
             perspective: 1000px;
             transform-origin: center;
@@ -258,15 +263,14 @@
 
         /* 第一个项目样式 */
         .item:nth-child(1) {
-            background-image: url(./01.jpg);
-            /* 背景图片为01.jpg */
+            background-image: url(images/poster1.jpg);
             transform: rotateY(0) translateZ(35vw);
             /* 变换：绕y轴旋转0度，沿z轴平移35vw */
         }
 
         /* 第二个项目样式 */
         .item:nth-child(2) {
-            background-image: url(./02.jpg);
+            background-image: url(images/poster2.jpg);
             /* 背景图片为02.jpg */
             transform: rotateY(120deg) translateZ(35vw);
             /* 变换：绕y轴旋转120度，沿z轴平移35vw */
@@ -274,8 +278,7 @@
 
         /* 第三个项目样式 */
         .item:nth-child(3) {
-            background-image: url(./03.jpg);
-            /* 背景图片为03.jpg */
+            background-image: url(images/poster3.jpg);
             transform: rotateY(240deg) translateZ(35vw);
             /* 变换：绕y轴旋转240度，沿z轴平移35vw */
         }
@@ -307,7 +310,23 @@
                 /* 变换：沿z轴平移-35vw，绕y轴旋转-360度 */
             }
         }
-        
+
+        /* 手機版調整 */
+@media (max-width: 768px) {
+    .shell {
+        width: 220px;
+        height: 150px;
+    }
+    .item {
+        width: 200px;
+        height: 130px;
+    }
+    .item:nth-child(1),
+    .item:nth-child(2),
+    .item:nth-child(3) {
+        transform: rotateY(calc(120deg * (var(--i, 0)))) translateZ(110px);
+    }
+}
     </style>
 </head>
 
@@ -375,12 +394,15 @@
                 </div>
             </div>
             
-            <div class="shell">
-                <div class="content">
-                    <h2 class="story-title">Poster <span class="en-title">海報</span></h2>
-                    <div class="item"></div>
-                    <div class="item"></div>
-                    <div class="item"></div>
+            <div class="poster-section">
+                <h2 class="story-title">Poster <span class="en-title">海報</span></h2>
+
+                <div class="shell">
+                    <div class="content">
+                        <div class="item"></div>
+                        <div class="item"></div>
+                        <div class="item"></div>
+                    </div>
                 </div>
             </div>
                     
